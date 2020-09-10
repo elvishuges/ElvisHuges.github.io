@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
   <meta charset="utf-8">
@@ -18,10 +19,12 @@
   <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet">
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="css/agency.min.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
   <link href="css/resume.min.css" rel="stylesheet">
-  
+
 
 </head>
 
@@ -34,7 +37,8 @@
         <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/profile.jpg" alt="">
       </span>
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -50,7 +54,10 @@
         </li>
         <li class="nav-item">
           <a class="nav-link js-scroll-trigger" href="#skills">Skills</a>
-        </li>           
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#contato">Contato</a>
+        </li>
       </ul>
     </div>
   </nav>
@@ -65,22 +72,19 @@
         <div class="subheading mb-5">Feira de Santana · BA · (75) 98164-2037·
           <a href="mailto:name@email.com">elvishuges@hot.com</a>
         </div>
-        <p class="lead mb-5">Graduando em Engenharia da Computação. Fascinado por tecnologias. Possui experiência 
-		como consultor e desenvolvedor na Empresa Júnior (EcompJr) utilizando Frameworks e metodologias ágeis para
-		o desenvolvimento de sites, sistemas e aplicativos. 
-		Possui também experiência como Frontend no desenvolvimento de sistemas clinícos.</p>
+        <p class="lead mb-5">Graduando em Engenharia da Computação. Fascinado por tecnologias. Possui experiência
+          como consultor e desenvolvedor na Empresa Júnior (EcompJr) utilizando Frameworks e metodologias ágeis para
+          o desenvolvimento de sites, sistemas e aplicativos.
+          Possui também experiência como Frontend no desenvolvimento de sistemas clinícos.</p>
         <div class="social-icons">
-          <a  target="_blank" href="https://www.linkedin.com/in/elvis-huges-41043897/">
+          <a target="_blank" href="https://www.linkedin.com/in/elvis-huges-41043897/">
             <i class="fab fa-linkedin-in"></i>
           </a>
-          <a  target="_blank" href="https://github.com/elvishuges">
+          <a target="_blank" href="https://github.com/elvishuges">
             <i class="fab fa-github"></i>
           </a>
-	   <a  target="_blank" href="https://gitlab.com/ElvisHuges">
-            <i class="fab fa-gitlab"></i>
-          </a>
 
-          <a  target="_blank" href="https://www.facebook.com/elvishuges">
+          <a target="_blank" href="https://www.facebook.com/elvishuges">
             <i class="fab fa-facebook-f"></i>
           </a>
         </div>
@@ -97,23 +101,26 @@
           <div class="resume-content">
             <h3 class="mb-0">Web Developer</h3>
             <div class="subheading mb-3">Empresa Júnior - Engenharia da Computação (EcompJr) </div>
-            <p> Desenvolveu um sistema, utilizando metodologias ágeis, que tem como objetivo deixar disponível para a comunidade universitária as resoluções
-              dos orgão (Consep, Consu e Consad) presentes na administração da Uefs, tornando possível a busca rápida dessas resoluções para os interressados.
-			  Para isso foram utilizados os frameworks Laravel e Bootstrap.
-                     </p>
+            <p> Desenvolveu um sistema, utilizando metodologias ágeis, que tem como objetivo deixar disponível para a
+              comunidade universitária as resoluções
+              dos orgão (Consep, Consu e Consad) presentes na administração da Uefs, tornando possível a busca rápida
+              dessas resoluções para os interressados.
+              Para isso foi utilizado o framework Laravel e Bootstrap.
+            </p>
           </div>
           <div class="resume-date text-md-right">
             <span class="text-primary">junho 2018 - Maio 2019</span>
           </div>
         </div>
-		
-		<div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
           <div class="resume-content">
             <h3 class="mb-0">Web Developer</h3>
             <div class="subheading mb-3">Kamikan - Processamento de Dados</div>
-            <p> Desenvolveu a parte Frontend de um Sistema de Filas de atendimento médico, que tem como objetivo gerenciar o fluxo de atendimento em clinicas.
-			Para isso foi utilizado o framework Vuejs em conjunto com a biblioteca de componentes Vuetify.
-              </p>
+            <p> Desenvolveu a parte Frontend de um Sistema de Filas de atendimento médico, que tem como objetivo
+              gerenciar o fluxo de atendimento em clinicas.
+              Para isso foi utilizado o framework Vuejs em conjunto com a biblioteca de componentes Vuetify.
+            </p>
           </div>
           <div class="resume-date text-md-right">
             <span class="text-primary">Maio 2019 - Junho 2020</span>
@@ -133,7 +140,7 @@
           <div class="resume-content">
             <h3 class="mb-0">Universidade Estadual de Feira de Santana</h3>
             <div class="subheading mb-3">Graduando em Engenharia da Computação</div>
-            <div>Engenharia da Computação</div>           
+            <div>Engenharia da Computação</div>
           </div>
           <div class="resume-date text-md-right">
             <span class="text-primary">Janeiro 2013 - Atualmente</span>
@@ -155,26 +162,79 @@
           </li>
           <li class="list-inline-item">
             <i class="fab fa-css3-alt"></i>
-          </li>          
+          </li>
           <li class="list-inline-item">
             <i class="fab fa-vuejs"></i>
           </li>
           <li class="list-inline-item">
             <i class="fab fa-react"></i>
-          </li> 
+          </li>
           <li class="list-inline-item">
             <i class="fab fa-npm"></i>
           </li>
           <li class="list-inline-item">
             <i class="fab fa-laravel"></i>
-          </li>                   
+          </li>
         </ul>
 
     </section>
- 
+
+    <hr class="m-0">
+    <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="contato">
+      <div class="w-100">
+        <h2 class="mb-5">Contato</h2>
+
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+          <div class="resume-content">
+            <div class="subheading mb-1">Entre em contato direto pelo meu Tegram</div>
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <form id="gform" name="gfom" action="https://docs.google.com/forms/d/e/1FAIpQLSchuUV8rPvgvE0DmlqM1_W6y-HGIck3HCtBWLp87KQtQy3twg/formResponse?" target="hidden_iframe" onsubmit="submitted=true;" novalidate>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input class="form-control" name="entry.2024959243" id="entry.2024959243" type="text" placeholder="Seu Nome *" required data-validation-required-message="Por favor insira seu nome.">
+                    <p class="help-block text-danger"></p>
+                  </div>
+                  <div class="form-group">
+                    <input class="form-control" name="entry.306747545" id="entry.306747545" type="email" placeholder="Seu E-mail *" required data-validation-required-message="Please enter your email address.">
+                    <p class="help-block text-danger"></p>
+                  </div>
+                  <div class="form-group">
+                    <input class="form-control" name="entry.404368362" id="entry.404368362" type="tel" placeholder="Celular *" required data-validation-required-message="Please enter your phone number.">
+                    <p class="help-block text-danger"></p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <textarea class="form-control" name="entry.2061973200" id="entry.2061973200" placeholder="Mensagem *" required data-validation-required-message="Please enter a message."></textarea>
+                    <p class="help-block text-danger"></p>
+                  </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-lg-12 text-center">
+                  <div id="success"></div>
+                  <button id="sendMessageButton" value="Submit" class="btn btn-primary btn-xl text-uppercase" type="submit">Send Message</button>
+                </div>
+              </div>
+            </form>
+            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {}"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+
 
   </div>
-  
+
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
@@ -185,13 +245,58 @@
 
   <!-- Custom scripts for this template -->
   <script src="js/resume.min.js"></script>
-  
-  
+
+    <!-- Portfolio Modals -->
+    <div id="secondLoader"></div>
+    <!--Conteúdo carregado do JS-->
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Contact form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <!-- <script src="js/agency.min.js"></script> -->
+
+    <script type="text/javascript">var submitted=false;</script>
+    <script type="text/javascript">
+    $('#gform').on('submit', function(e) {
+    $('#gform *').fadeOut(2000);
+    $('#gform').prepend("<div class='alert alert-primary' align='center' role='alert'> Sua mensagem foi enviada, Obrigado. Aguarde a resposta !!</div>");
+    });
+</script>
+
+<script>
+  $(document).ready(function(){
+    $("button").click(function(){
+
+      var postData ={
+        nome:document.getElementById("entry.2024959243").value,
+        email:document.getElementById("entry.306747545").value,
+        celular:document.getElementById("entry.404368362").value,
+        mensagem:document.getElementById("entry.2061973200").value
+      }
+
+      $.ajax({url: "http://localhost:3000/postPortifolio",
+         type: "POST",
+         data: postData,
+         success: function(result){
+          $("#div1").html(result);
+      }});
+    });
+  });
+  </script>
+
+
 
 </body>
 
 
 
 </html>
-
-
