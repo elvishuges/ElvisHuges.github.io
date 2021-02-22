@@ -72,10 +72,10 @@
         <div class="subheading mb-5">Feira de Santana · BA · (75) 98164-2037·
           <a href="mailto:name@email.com">elvishuges@hot.com</a>
         </div>
-        <p class="lead mb-5">Graduando em Engenharia da Computação. Fascinado por tecnologias. Possui experiência
-          como consultor e desenvolvedor na Empresa Júnior (EcompJr) utilizando Frameworks e metodologias ágeis para
-          o desenvolvimento de sites, sistemas e aplicativos.
-          Possui também experiência como Frontend no desenvolvimento de sistemas clinícos.</p>
+        <p class="lead mb-5">Graduando em Engenharia da Computação pela Universidade Estadual de Feira de Santanta (UEFS), Fascinado por tecnologias. Possui experiência
+          como consultor e desenvolvedor na Empresa Júnior (EcompJr) da UEFS.
+          Possui, também, experiência como Desenvolvedor web em Kamikan - Processamento de dados, no desenvolvimento de sistemas clinícos.
+		  Como Freelancer, Trabalho principalmente com o Vuejs e Nodejs.</p>
         <div class="social-icons">
           <a target="_blank" href="https://www.linkedin.com/in/elvis-huges-41043897/">
             <i class="fab fa-linkedin-in"></i>
@@ -96,12 +96,26 @@
     <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="experience">
       <div class="w-100">
         <h2 class="mb-5">Experiências</h2>
+		
+		<div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+          <div class="resume-content">
+            <h3 class="mb-0">Freelancer</h3>
+            <div class="subheading mb-3">Bocapio - Cominicação e tecnologia</div>
+            <p> Desenvolvimento da parte front-end e de parte do back-end de um sistema de envio e validação de requerimentos para prefeituras. 
+			Para isso foi utilizado, no front-end, o framework Vuejs em comjunto de com a biblioteca de componentesm Bootstrap, e no backend
+			foi utilizado o Nodejs e comjunto com o Sequelize.
+            </p>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">Julho 2020 - Atualmente</span>
+          </div>
+        </div>
 
         <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
           <div class="resume-content">
             <h3 class="mb-0">Web Developer</h3>
             <div class="subheading mb-3">Kamikan - Processamento de Dados</div>
-            <p> Desenvolveu a parte Frontend de um Sistema de Filas de atendimento médico, que tem como objetivo
+            <p> Desenvolveu a parte Frontend de um Sistema de filas de atendimento médico, que tem como objetivo
               gerenciar o fluxo de atendimento em clinicas.
               Para isso foi utilizado o framework Vuejs em conjunto com a biblioteca de componentes Vuetify.
             </p>
@@ -119,7 +133,7 @@
               comunidade universitária as resoluções
               dos orgão (Consep, Consu e Consad) presentes na administração da Uefs, tornando possível a busca rápida
               dessas resoluções para os interressados.
-              Para isso foi utilizado o framework Laravel e Bootstrap.
+              Para isso foi utilizado os frameworks Laravel e Bootstrap.
             </p>
           </div>
           <div class="resume-date text-md-right">
@@ -158,6 +172,24 @@
         <h2 class="mb-5">Skills</h2>
 
         <div class="subheading mb-3">Linguagens de Programação &amp; Ferramentas</div>
+		   <div class="row">
+			<h3><span class="badge badge-secondary ml-3 mr-3">HTML</span></h3>
+			<h3><span class="badge badge-secondary ml-3 mr-3">CSS</span></h3>
+			<h3><span class="badge badge-secondary ml-3 mr-3 ">Javascript</span></h3>
+			<h3><span class="badge badge-secondary ml-3 mr-3 ">Vuejs</span></h3>
+			<h3><span class="badge badge-secondary ml-3 mr-3 ">Reactjs</span></h3>
+			<h3><span class="badge badge-secondary ml-3 mr-3 ">Bootstrap</span></h3>
+			<h3><span class="badge badge-secondary ml-3 mr-3 ">Vuetify</span></h3>
+			<h3><span class="badge badge-secondary ml-3 mr-3 ">Quasar</span></h3>
+			<h3><span class="badge badge-secondary ml-3 mr-3 ">Laravel</span></h3>			
+			<h3><span  class="badge badge-secondary ml-3 mr-3 ">Nodejs</span></h3>
+			<h3><span  class="badge badge-secondary ml-3 mr-3 ">Sequelize</span></h3>
+			<h3><span class="badge badge-secondary ml-3 mr-3 ">Git</span></h3>
+			<h3><span  class="badge badge-secondary ml-3 mr-3 ">CI/CD</span></h3>
+			
+		   </div>
+		
+		<!--
         <ul class="list-inline dev-icons">
           <li text="oi" class="list-inline-item">
             <i class="fab fa-html5"></i>
@@ -178,6 +210,7 @@
             <i class="fab fa-laravel"></i>
           </li>
         </ul>
+		-->
 
     </section>
 
@@ -194,25 +227,25 @@
         </div>
         <div class="row">
           <div class="col-lg-12">
-            <form id="gform" name="gfom" target="hidden_iframe" onsubmit="submitted=true;" novalidate>
+            <form  id="gform" name="gfom" target="hidden_iframe" onsubmit="submitted=true;" >
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <input class="form-control" name="entry.2024959243" id="entry.2024959243" type="text" placeholder="Seu Nome *" required data-validation-required-message="Por favor insira seu nome.">
+                    <input class="form-control" name="entry.2024959243" id="name" type="text" placeholder="Seu Nome *" required data-validation-required-message="Por favor insira seu nome.">
                     <p class="help-block text-danger"></p>
                   </div>
                   <div class="form-group">
-                    <input class="form-control" name="entry.306747545" id="entry.306747545" type="email" placeholder="Seu E-mail *" required data-validation-required-message="Please enter your email address.">
+                    <input class="form-control" name="entry.306747545" id="email" placeholder="Seu E-mail" type="email" placeholder="Seu E-mail *" data-validation-required-message="Please enter your email address.">
                     <p class="help-block text-danger"></p>
                   </div>
                   <div class="form-group">
-                    <input class="form-control" name="entry.404368362" id="entry.404368362" type="tel" placeholder="Celular *" required data-validation-required-message="Please enter your phone number.">
+                    <input class="form-control" name="entry.404368362" id="cell" type="tel" placeholder="Celular para retorno *" required data-validation-required-message="Please enter your phone number.">
                     <p class="help-block text-danger"></p>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <textarea class="form-control" name="entry.2061973200" id="entry.2061973200" placeholder="Mensagem *" required data-validation-required-message="Please enter a message."></textarea>
+                    <textarea class="form-control" name="entry.2061973200" id="message" placeholder="Mensagem *" required data-validation-required-message="Please enter a message."></textarea>
                     <p class="help-block text-danger"></p>
                   </div>
                 </div>
@@ -223,7 +256,7 @@
                 </div>
               </div>
             </form>
-            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {}"></iframe>
+            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"  {}"></iframe>
           </div>
         </div>
       </div>
@@ -276,24 +309,48 @@
 
 <script>
   $(document).ready(function(){
+    
+	function validarForm(){
+	  if(!document.getElementById("name").value){
+	    return false
+	  }
+	  if(!document.getElementById("cell").value){
+	    return false
+	  }
+	  if(!document.getElementById("message").value){
+	    return false
+	  }
+	  return true
+	}
+  
+    
     $("button").click(function(){
 
-      var postData ={
-        nome:document.getElementById("entry.2024959243").value,
-        email:document.getElementById("entry.306747545").value,
-        celular:document.getElementById("entry.404368362").value,
-        mensagem:document.getElementById("entry.2061973200").value
-      }
-
-      $.ajax({url: "https://simplesmedic.herokuapp.com/postPortifolio",
-         type: "POST",
-         data: postData,
-         success: function(result){
-          $("#div1").html(result);
-      }});
+      
+	  if(validarForm()){
+          console.log("Enviando....")
+		  
+		  var postData ={
+			nome:document.getElementById("name").value,
+			email:document.getElementById("email").value,
+			celular:document.getElementById("cell").value,
+			mensagem:document.getElementById("message").value
+		  }
+		  
+		  $.ajax({url: "https://simplesmedic.herokuapp.com/postPortifolio",
+			 type: "POST",
+			 data: postData,
+			 success: function(result){
+			  $("#div1").html(result);
+		  }});
+	   }
     });
   });
   </script>
 
 </body>
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> master
