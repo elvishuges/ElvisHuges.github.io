@@ -118,7 +118,6 @@ p.lead {
   }
   #sideNav .navbar-brand .img-profile {
     max-width: 10rem;
-    max-height: 10rem;
     border: 0.5rem solid rgba(255, 255, 255, 0.2);
   }
   #sideNav .navbar-collapse {
@@ -151,7 +150,7 @@ p.lead {
 
 section.resume-section {
   padding-top: 5rem !important;
-  padding-bottom: 5rem !important;
+  padding-bottom: 1rem !important;
   max-width: 75rem;
 }
 
