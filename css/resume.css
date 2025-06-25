@@ -226,13 +226,57 @@ a:hover, a:focus, a:active {
 }
 
 .tag {
-  background-color: #90ee90;
-  color: #000;
+  background-color: #777879;
   font-weight: 600;
   padding: 0.3rem 0.8rem;
   border-radius: 5px;
   font-size: 0.85rem;
   text-transform: lowercase;
 }
+
+.skill-card {
+  border: 1px solid #e0e0e0;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  color: whitesmoke;
+  font-weight: 600;
+  padding: 0.35rem 0.9rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+
+.project-card {
+  transition: all 0.3s ease;
+  border: 1px solid #e0e0e0;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px rgba(0, 255, 100, 0.15);
+}
+
+.project-image img {
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.project-links .btn {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
 
 
