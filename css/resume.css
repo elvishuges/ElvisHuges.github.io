@@ -189,3 +189,50 @@ a {
 a:hover, a:focus, a:active {
   color: #824027;
 }
+
+
+.experience-card-black {
+  background-color: #1e1e1e;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 255, 120, 0.1);
+  color: #f0f0f0;
+}
+.experience-card-white {
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 255, 120, 0.1);
+}
+
+.job-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.job-title .highlight {
+  color: #00ff90;
+}
+
+.text-muted {
+  color: #ccc;
+}
+
+.text-light {
+  color: #ddd;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  background-color: #90ee90;
+  color: #000;
+  font-weight: 600;
+  padding: 0.3rem 0.8rem;
+  border-radius: 5px;
+  font-size: 0.85rem;
+  text-transform: lowercase;
+}
+
+
