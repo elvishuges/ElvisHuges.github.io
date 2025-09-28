@@ -21,12 +21,24 @@
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
   <!-- Custom styles for this template -->
   <link href="css/agency.min.css" rel="stylesheet">
+    <link href="css/modern.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
   <link href="css/resume.css" rel="stylesheet">
 
 
 </head>
+  <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/SEU_ID_DE_PROPRIEDADE/default';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+  </script>
 
 <body id="page-top">
 
@@ -401,6 +413,27 @@
 
   </div>
 
+  <div class="chat-container">
+  <button id="open-chat" class="chat-toggle-btn">
+    <i class="fas fa-comment-dots"></i>
+  </button>
+
+  <div id="chat-popup" class="chat-popup">
+    <div class="chat-header">
+      <h4>Elvis Huges Chatbot</h4>
+      <i class="fas fa-times close-btn"></i>
+    </div>
+    <div class="chat-body">
+      <p class="chat-message bot">Olá! Eu sou o assistente virtual do Elvis. Em que posso te ajudar?</p>
+      <p class="chat-message bot">Pergunte sobre Experiências, Skills ou Projetos!</p>
+    </div>
+    <div class="chat-footer">
+      <input type="text" placeholder="Digite sua mensagem..." disabled>
+      <button disabled><i class="fas fa-paper-plane"></i></button>
+    </div>
+  </div>
+</div>
+
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
@@ -480,6 +513,25 @@
       });
     });
   </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const openBtn = document.getElementById('open-chat');
+        const closeBtn = document.querySelector('.close-btn');
+        const chatPopup = document.getElementById('chat-popup');
+
+        // Função para alternar a visibilidade
+        function toggleChat() {
+            chatPopup.classList.toggle('show');
+            
+            // Oculta o botão flutuante quando o pop-up está aberto
+            // openBtn.style.display = chatPopup.classList.contains('show') ? 'none' : 'block';
+        }
+
+        // Eventos de clique
+        openBtn.addEventListener('click', toggleChat);
+        closeBtn.addEventListener('click', toggleChat);
+    });
+</script>
 
 </body>
 
