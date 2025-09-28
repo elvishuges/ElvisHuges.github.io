@@ -437,3 +437,32 @@ hr.m-0 {
     max-height: 70vh;
   }
 }
+/*
+  =====================================
+  EFEITO DE DIGITAÇÃO (TYPEWRITER)
+  =====================================
+*/
+
+/* O cursor que pisca */
+.blinking-cursor {
+  font-weight: 100; /* Leve */
+  font-size: 1.2em;
+  color: var(--highlight);
+  animation: blink-caret 0.75s step-end infinite;
+}
+
+/* Animação para fazer o cursor piscar */
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: var(--highlight);
+  }
+}
+
+/* Garante que o texto digitado tenha a cor correta */
+#about-text {
+  color: #ccc;
+}

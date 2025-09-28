@@ -87,12 +87,10 @@
         <div class="subheading mb-5">Rio das Ostras · RJ · (75) 98164-2037·
           <a href="mailto:name@email.com">elvishuges@hot.com</a>
         </div>
-        <p class="lead mb-5">Graduado em Engenharia da Computação pela Universidade Estadual de Feira de Santanta
-          (UEFS), fascinado por tecnologias, música e astronomia. Atualmente sou desenvolvedor Fullstack na Vollare,
-          atuando na implementação de novas funcionalidades e manutenção das funcionalidades existentes no sistema do 1° Registro de Imóvel de Feira de Santana.
-          Atuo tanto no front-end quanto no back-end,
-          entregando soluções eficientes e escaláveis. Também tenho vivência no desenvolvimento de sistemas clínicos e de sistemas tradicionais.
-        </p>
+        <p id="about-text" class="lead mb-5">
+      <span id="typewriter-text"></span>
+    </p>
+
         <div class="social-icons">
           <a target="_blank" href="https://www.linkedin.com/in/elvis-huges-41043897/">
             <i class="fab fa-linkedin-in"></i>
@@ -428,7 +426,7 @@
       <p class="chat-message bot">Pergunte sobre Experiências, Skills ou Projetos!</p>
     </div>
     <div class="chat-footer">
-      <input type="text" placeholder="Digite sua mensagem..." disabled>
+      <input type="text" placeholder="(Disponível em breve...)" disabled>
       <button disabled><i class="fas fa-paper-plane"></i></button>
     </div>
   </div>
@@ -530,6 +528,31 @@
         // Eventos de clique
         openBtn.addEventListener('click', toggleChat);
         closeBtn.addEventListener('click', toggleChat);
+    });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // O TEXTO QUE SERÁ DIGITADO
+        const fullText = "Graduado em Engenharia da Computação pela Universidade Estadual de Feira de Santana (UEFS), fascinado por tecnologias, música e astronomia. Atualmente sou desenvolvedor Fullstack na Vollare, atuando na implementação de novas funcionalidades e manutenção das funcionalidades existentes no sistema do 1° Registro de Imóvel de Feira de Santana. Atuo tanto no front-end quanto no back-end, entregando soluções eficientes e escaláveis. Também tenho vivência no desenvolvimento de sistemas clínicos e de sistemas tradicionais.";
+        
+        const textElement = document.getElementById('typewriter-text');
+        let i = 0;
+        const speed = 40; // Velocidade da digitação (quanto menor, mais rápido)
+
+        function typeWriter() {
+            if (i < fullText.length) {
+                textElement.innerHTML += fullText.charAt(i);
+                i++;
+                setTimeout(typeWriter, speed);
+            } else {
+                // Adiciona o cursor de piscar no final, se desejar
+                textElement.innerHTML += '<span class="blinking-cursor">|</span>';
+            }
+        }
+
+        // Inicia o efeito
+        typeWriter();
     });
 </script>
 
