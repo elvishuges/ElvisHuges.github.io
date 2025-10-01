@@ -28,17 +28,7 @@
 
 
 </head>
-  <script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/SEU_ID_DE_PROPRIEDADE/default';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
-    })();
-  </script>
+  
 
 <body id="page-top">
 
@@ -425,10 +415,10 @@
       <p class="chat-message bot">Olá! Eu sou o assistente virtual do Elvis. Em que posso te ajudar?</p>
       <p class="chat-message bot">Pergunte sobre Experiências, Skills ou Projetos!</p>
     </div>
-    <div class="chat-footer">
-      <input type="text" placeholder="(Disponível em breve...)" disabled>
-      <button disabled><i class="fas fa-paper-plane"></i></button>
-    </div>
+   <div class="chat-footer">
+    <input type="text" id="chat-input" placeholder="Pergunte sobre Elvis..." autofocus>
+    <button id="send-chat-btn"><i class="fas fa-paper-plane"></i></button>
+  </div>
   </div>
 </div>
 
@@ -469,48 +459,86 @@
     });
   </script>
 
-  <script>
-    $(document).ready(function () {
+    <script>
+      $(document).ready(function() {
+          const chatInput = $('#chat-input');
+          const sendBtn = $('#send-chat-btn');
+          const chatBody = $('.chat-body');
+          const serverUrl = 'http://localhost:3000/api/gemini/generate-answer'; // Altere a porta e/ou endpoint se necessário
 
-      function validarForm() {
-        if (!document.getElementById("name").value) {
-          return false
-        }
-        if (!document.getElementById("cell").value) {
-          return false
-        }
-        if (!document.getElementById("message").value) {
-          return false
-        }
-        return true
-      }
-
-
-      $("button").click(function () {
-
-
-        if (validarForm()) {
-          console.log("Enviando....")
-
-          var postData = {
-            nome: document.getElementById("name").value,
-            email: document.getElementById("email").value,
-            celular: document.getElementById("cell").value,
-            mensagem: document.getElementById("message").value
+          // Função para adicionar uma mensagem ao corpo do chat
+          function appendMessage(text, sender) {
+              const messageClass = sender === 'user' ? 'user' : 'bot';
+              // Cria um novo parágrafo com a classe e o texto
+              const messageHtml = `<p class="chat-message ${messageClass}">${text}</p>`;
+              chatBody.append(messageHtml);
+              // Rola para o final do chat
+              chatBody.scrollTop(chatBody[0].scrollHeight);
           }
 
-          $.ajax({
-            url: "https://simplesmedic.herokuapp.com/postPortifolio",
-            type: "POST",
-            data: postData,
-            success: function (result) {
-              $("#div1").html(result);
-            }
+          // Função para enviar a mensagem ao servidor
+          function sendMessage() {
+              const message = chatInput.val().trim();
+
+              if (message === '') {
+                  return; // Não envia mensagens vazias
+              }
+
+              // 1. Adiciona a mensagem do usuário ao chat
+              appendMessage(message, 'user');
+
+              // Limpa o input
+              chatInput.val('');
+              
+              // Adiciona um placeholder de "digitando..." para feedback
+              const typingIndicator = $('<p class="chat-message bot typing-indicator">Digitando...</p>');
+              chatBody.append(typingIndicator);
+              chatBody.scrollTop(chatBody[0].scrollHeight);
+
+
+              // 2. Envia a requisição AJAX para o servidor
+              $.ajax({
+                  url: serverUrl,
+                  type: 'POST',
+                  // O servidor deve esperar um JSON no corpo da requisição
+                  contentType: 'application/json', 
+                  data: JSON.stringify({ question: message }), 
+                  
+                  success: function(response) {
+                      // Remove o indicador de "digitando..."
+                      typingIndicator.remove(); 
+                      
+                      // 3. Adiciona a resposta do bot (supondo que a resposta esteja em response.text ou response.answer)
+                      const botResponse = response.data || response.answer || 'Desculpe, não consegui obter uma resposta.';
+                      appendMessage(botResponse, 'bot');
+                  },
+                  
+                  error: function(xhr, status, error) {
+                      // Remove o indicador de "digitando..."
+                      typingIndicator.remove(); 
+                      
+                      // 4. Exibe um alerta de erro e uma mensagem no chat
+                      const errorMessage = `Erro ao conectar com o servidor: ${error}. Verifique se o servidor em ${serverUrl} está rodando.`;
+                      appendMessage('🤖 Ops! Ocorreu um erro ao tentar obter a resposta. O servidor pode estar offline. Por favor, tente mais tarde!', 'bot');
+                      console.error('AJAX Error:', status, error, xhr.responseText);
+                  }
+              });
+          }
+
+          // Evento de clique no botão de enviar
+          sendBtn.on('click', sendMessage);
+
+          // Evento de pressionar a tecla Enter no input
+          chatInput.on('keypress', function(e) {
+              // Verifica se a tecla pressionada é 'Enter' (código 13)
+              if (e.which === 13) {
+                  sendMessage();
+                  e.preventDefault(); // Evita quebra de linha no input
+              }
           });
-        }
       });
-    });
   </script>
+
   <script>
     document.addEventListener('DOMContentLoaded', function() {
         const openBtn = document.getElementById('open-chat');
