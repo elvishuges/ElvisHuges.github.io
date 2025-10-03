@@ -1,24 +1,46 @@
+// ChatbotController.js
 export class ChatbotController {
-  #chatbotView;
-  #promptService;
+  #view;
+  #service;
+  constructor({ chatbotView, geminiService }) {
+    this.#view = chatbotView;
+    this.#service = geminiService;
+  }
 
-  constructor({ chatbotView, promptService }) {
-    this.#setupEvents();
-    this.#chatbotView = chatbotView;
-    this.#promptService = promptService;
-  }
-  async init({ firstBotMessage, text }) {
-    return this.#promptService.init(text);
-  }
-  #setupEvents() {
-    this.#chatbotView.setupEventHandlers({
-      onOpen: this.#onOpen.bind(this),
-      onSend: this.#chatBotReply.bind(this),
-      onStop: this.#handleStop.bind(this),
+  init() {
+    this.#view.setupEventHandlers({
+      onOpen: () => this.openChat(),
+      onClose: () => this.closeChat(),
+      onSend: (message) => this.handleSendMessage(message),
     });
   }
-  #onOpen() {
-    this.#chatbotView.appendBotMessage(messages);
+
+  openChat() {
+    this.#view.togglePopup(true);
   }
-  #onSend() {}
+
+  closeChat() {
+    this.isOpen = false;
+    this.#view.togglePopup(false);
+  }
+
+  async handleSendMessage(userMessage) {
+    this.#view.showTyping();
+    this.#view.appendMessage(userMessage, "user");
+
+    // Resposta do "service"
+    try {
+      const botResponse = await this.#service.sendMessage(userMessage);
+      setTimeout(() => {
+        this.#view.appendMessage(botResponse, "bot");
+        this.#view.removeTyping();
+      }, 500);
+    } catch (error) {
+      this.#view.removeTyping();
+      this.#view.appendMessage(
+        "Ocorreu um erro inesperado. Desculpe. Estou entrando em contato com Elvis para solucionar.",
+        "bot"
+      );
+    }
+  }
 }
