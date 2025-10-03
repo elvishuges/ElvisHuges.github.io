@@ -20,7 +20,6 @@
   <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet">
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
   <!-- Custom styles for this template -->
-  <link href="css/agency.min.css" rel="stylesheet">
     <link href="css/modern.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
@@ -31,6 +30,8 @@
   
 
 <body id="page-top">
+  <!-- Seus scripts em ordem -->
+ <script type="module" defer src="./chatbotsdk/index.js"></script>
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
     <a class="navbar-brand js-scroll-trigger" href="#page-top">
@@ -335,63 +336,10 @@
   </div>
 
 </div>
-
-
     </section>
 
     <hr class="m-0">
-    <!-- <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="contato">
-      <div class="w-100">
-        <h2 class="mb-5">Contato</h2>
-
-        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
-          <div class="resume-content">
-            <div class="subheading mb-1">Entre em contato direto pelo meu Telegram</div>
-
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-12">
-            <form id="gform" name="gfom" target="hidden_iframe" onsubmit="submitted=true;">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <input class="form-control" name="entry.2024959243" id="name" type="text" placeholder="Seu Nome *"
-                      required data-validation-required-message="Por favor insira seu nome.">
-                    <p class="help-block text-danger"></p>
-                  </div>
-                  <div class="form-group">
-                    <input class="form-control" name="entry.306747545" id="email" placeholder="Seu E-mail" type="email"
-                      placeholder="Seu E-mail *" data-validation-required-message="Please enter your email address.">
-                    <p class="help-block text-danger"></p>
-                  </div>
-                  <div class="form-group">
-                    <input class="form-control" name="entry.404368362" id="cell" type="tel"
-                      placeholder="Celular para retorno *" required
-                      data-validation-required-message="Please enter your phone number.">
-                    <p class="help-block text-danger"></p>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <textarea class="form-control" name="entry.2061973200" id="message" placeholder="Mensagem *"
-                      required data-validation-required-message="Please enter a message."></textarea>
-                    <p class="help-block text-danger"></p>
-                  </div>
-                </div>
-                <div class="clearfix"></div>
-                <div class="col-lg-12 text-center">
-                  <div id="success"></div>
-                  <button id="sendMessageButton" value="Submit" class="btn btn-primary btn-xl text-uppercase"
-                    type="submit">Enviar Mensagem !! <i class="fab fa-telegram"></i></button>
-                </div>
-              </div>
-            </form>
-            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" {}"></iframe>
-          </div>
-        </div>
-      </div>
-    </section> -->
+  
 
 
 
@@ -401,26 +349,7 @@
 
   </div>
 
-  <div class="chat-container">
-  <button id="open-chat" class="chat-toggle-btn">
-    <i class="fas fa-comment-dots"></i>
-  </button>
-
-  <div id="chat-popup" class="chat-popup">
-    <div class="chat-header">
-      <h4>Elvis Huges Chatbot</h4>
-      <i class="fas fa-times close-btn"></i>
-    </div>
-    <div class="chat-body">
-      <p class="chat-message bot">Olá! Eu sou o assistente virtual do Elvis. Em que posso te ajudar?</p>
-      <p class="chat-message bot">Pergunte sobre Experiências, Skills ou Projetos!</p>
-    </div>
-   <div class="chat-footer">
-    <input type="text" id="chat-input" placeholder="Pergunte sobre Elvis..." autofocus>
-    <button id="send-chat-btn"><i class="fas fa-paper-plane"></i></button>
-  </div>
-  </div>
-</div>
+ 
 
 
   <!-- Bootstrap core JavaScript -->
@@ -430,8 +359,6 @@
   <!-- Plugin JavaScript -->
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-  <!-- Custom scripts for this template -->
-  <script src="js/resume.min.js"></script>
 
   <!-- Portfolio Modals -->
   <div id="secondLoader"></div>
@@ -444,12 +371,9 @@
   <!-- Plugin JavaScript -->
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-  <!-- Contact form JavaScript -->
-  <script src="js/jqBootstrapValidation.js"></script>
-  <script src="js/contact_me.js"></script>
+  
 
-  <!-- Custom scripts for this template -->
-  <!-- <script src="js/agency.min.js"></script> -->
+ 
 
   <script type="text/javascript">var submitted = false;</script>
   <script type="text/javascript">
@@ -459,130 +383,8 @@
     });
   </script>
 
-    <script>
-      $(document).ready(function() {
-          const chatInput = $('#chat-input');
-          const sendBtn = $('#send-chat-btn');
-          const chatBody = $('.chat-body');
-          const serverUrl = 'http://localhost:3000/api/gemini/generate-answer'; // Altere a porta e/ou endpoint se necessário
-
-          // Função para adicionar uma mensagem ao corpo do chat
-          function appendMessage(text, sender) {
-              const messageClass = sender === 'user' ? 'user' : 'bot';
-              // Cria um novo parágrafo com a classe e o texto
-              const messageHtml = `<p class="chat-message ${messageClass}">${text}</p>`;
-              chatBody.append(messageHtml);
-              // Rola para o final do chat
-              chatBody.scrollTop(chatBody[0].scrollHeight);
-          }
-
-          // Função para enviar a mensagem ao servidor
-          function sendMessage() {
-              const message = chatInput.val().trim();
-
-              if (message === '') {
-                  return; // Não envia mensagens vazias
-              }
-
-              // 1. Adiciona a mensagem do usuário ao chat
-              appendMessage(message, 'user');
-
-              // Limpa o input
-              chatInput.val('');
-              
-              // Adiciona um placeholder de "digitando..." para feedback
-              const typingIndicator = $('<p class="chat-message bot typing-indicator">Digitando...</p>');
-              chatBody.append(typingIndicator);
-              chatBody.scrollTop(chatBody[0].scrollHeight);
 
 
-              // 2. Envia a requisição AJAX para o servidor
-              $.ajax({
-                  url: serverUrl,
-                  type: 'POST',
-                  // O servidor deve esperar um JSON no corpo da requisição
-                  contentType: 'application/json', 
-                  data: JSON.stringify({ question: message }), 
-                  
-                  success: function(response) {
-                      // Remove o indicador de "digitando..."
-                      typingIndicator.remove(); 
-                      
-                      // 3. Adiciona a resposta do bot (supondo que a resposta esteja em response.text ou response.answer)
-                      const botResponse = response.data || response.answer || 'Desculpe, não consegui obter uma resposta.';
-                      appendMessage(botResponse, 'bot');
-                  },
-                  
-                  error: function(xhr, status, error) {
-                      // Remove o indicador de "digitando..."
-                      typingIndicator.remove(); 
-                      
-                      // 4. Exibe um alerta de erro e uma mensagem no chat
-                      const errorMessage = `Erro ao conectar com o servidor: ${error}. Verifique se o servidor em ${serverUrl} está rodando.`;
-                      appendMessage('🤖 Ops! Ocorreu um erro ao tentar obter a resposta. O servidor pode estar offline. Por favor, tente mais tarde!', 'bot');
-                      console.error('AJAX Error:', status, error, xhr.responseText);
-                  }
-              });
-          }
-
-          // Evento de clique no botão de enviar
-          sendBtn.on('click', sendMessage);
-
-          // Evento de pressionar a tecla Enter no input
-          chatInput.on('keypress', function(e) {
-              // Verifica se a tecla pressionada é 'Enter' (código 13)
-              if (e.which === 13) {
-                  sendMessage();
-                  e.preventDefault(); // Evita quebra de linha no input
-              }
-          });
-      });
-  </script>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const openBtn = document.getElementById('open-chat');
-        const closeBtn = document.querySelector('.close-btn');
-        const chatPopup = document.getElementById('chat-popup');
-
-        // Função para alternar a visibilidade
-        function toggleChat() {
-            chatPopup.classList.toggle('show');
-            
-            // Oculta o botão flutuante quando o pop-up está aberto
-            // openBtn.style.display = chatPopup.classList.contains('show') ? 'none' : 'block';
-        }
-
-        // Eventos de clique
-        openBtn.addEventListener('click', toggleChat);
-        closeBtn.addEventListener('click', toggleChat);
-    });
-</script>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // O TEXTO QUE SERÁ DIGITADO
-        const fullText = "Graduado em Engenharia da Computação pela Universidade Estadual de Feira de Santana (UEFS), fascinado por tecnologias, música e astronomia. Atualmente sou desenvolvedor Fullstack na Vollare, atuando na implementação de novas funcionalidades e manutenção das funcionalidades existentes no sistema do 1° Registro de Imóvel de Feira de Santana. Atuo tanto no front-end quanto no back-end, entregando soluções eficientes e escaláveis. Também tenho vivência no desenvolvimento de sistemas clínicos e de sistemas tradicionais.";
-        
-        const textElement = document.getElementById('typewriter-text');
-        let i = 0;
-        const speed = 40; // Velocidade da digitação (quanto menor, mais rápido)
-
-        function typeWriter() {
-            if (i < fullText.length) {
-                textElement.innerHTML += fullText.charAt(i);
-                i++;
-                setTimeout(typeWriter, speed);
-            } else {
-                // Adiciona o cursor de piscar no final, se desejar
-                textElement.innerHTML += '<span class="blinking-cursor">|</span>';
-            }
-        }
-
-        // Inicia o efeito
-        typeWriter();
-    });
-</script>
 
 </body>
 

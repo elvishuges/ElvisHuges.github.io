@@ -1,0 +1,136 @@
+/*
+  =====================================
+  CHAT POP-UP (ESTRUTURA)
+  =====================================
+*/
+
+/* O botão que flutua e a janela do chat */
+.chat-container {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 9999;
+}
+
+/* 1. Botão Flutuante */
+.chat-toggle-btn {
+  background-color: var(--highlight);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.chat-toggle-btn:hover {
+  background-color: #0069d9; /* Tom um pouco mais escuro */
+  transform: translateY(-2px);
+}
+
+/* 2. Janela do Pop-up */
+.chat-popup {
+  display: none; /* Inicialmente escondido */
+  position: absolute;
+  bottom: 70px; /* Acima do botão */
+  right: 0;
+  width: 320px;
+  max-height: 450px;
+  background-color: var(--light-bg);
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  /* Visual compacto */
+  transform: scale(0.95);
+  transform-origin: bottom right;
+}
+
+.chat-popup.show {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Cabeçalho */
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  background-color: var(--highlight);
+  color: white;
+  font-family: "Saira Extra Condensed", sans-serif;
+}
+
+.chat-header h4 {
+  color: white;
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.chat-header .close-btn {
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: transform 0.2s;
+}
+
+.chat-header .close-btn:hover {
+  transform: rotate(90deg);
+}
+
+/* Corpo (Mensagens) */
+.chat-body {
+  flex-grow: 1;
+  padding: 15px;
+  overflow-y: auto;
+  border-bottom: 1px solid var(--border-color);
+  background-color: #242424;
+}
+
+.chat-message {
+  padding: 8px 12px;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  max-width: 80%;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.chat-message.bot {
+  background-color: #3a3a3a;
+  color: var(--text-color);
+  margin-right: auto;
+}
+
+/* Rodapé (Input) */
+.chat-footer {
+  display: flex;
+  padding: 10px;
+  background-color: var(--light-bg);
+}
+
+.chat-footer input {
+  flex-grow: 1;
+  padding: 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  margin-right: 10px;
+  background-color: #3a3a3a;
+  color: var(--text-color);
+}
+
+.chat-footer button {
+  background-color: var(--highlight);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  cursor: default; /* Como não está funcional, colocamos default */
+  opacity: 0.7;
+}
