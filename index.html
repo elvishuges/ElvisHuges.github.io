@@ -349,6 +349,31 @@
 
   </div>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // O TEXTO QUE SERÁ DIGITADO
+        const fullText = "Graduado em Engenharia da Computação pela Universidade Estadual de Feira de Santana (UEFS), fascinado por tecnologias, música e astronomia. Atualmente sou desenvolvedor Fullstack na Vollare, atuando na implementação de novas funcionalidades e manutenção das funcionalidades existentes no sistema do 1° Registro de Imóvel de Feira de Santana. Atuo tanto no front-end quanto no back-end, entregando soluções eficientes e escaláveis. Também tenho vivência no desenvolvimento de sistemas clínicos e de sistemas tradicionais.";
+        
+        const textElement = document.getElementById('typewriter-text');
+        let i = 0;
+        const speed = 40; // Velocidade da digitação (quanto menor, mais rápido)
+
+        function typeWriter() {
+            if (i < fullText.length) {
+                textElement.innerHTML += fullText.charAt(i);
+                i++;
+                setTimeout(typeWriter, speed);
+            } else {
+                // Adiciona o cursor de piscar no final, se desejar
+                textElement.innerHTML += '<span class="blinking-cursor">|</span>';
+            }
+        }
+
+        // Inicia o efeito
+        typeWriter();
+    });
+</script>
+
  
 
 

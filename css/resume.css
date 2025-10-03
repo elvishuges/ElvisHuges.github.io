@@ -5,9 +5,14 @@
  */
 
 body {
-  font-family: 'Muli', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  font-family: "Muli", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
   padding-top: 54px;
   color: #868e96;
+}
+html {
+  scroll-behavior: smooth;
 }
 
 @media (min-width: 992px) {
@@ -23,7 +28,9 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Saira Extra Condensed', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  font-family: "Saira Extra Condensed", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-weight: 700;
   text-transform: uppercase;
   color: #343a40;
@@ -50,7 +57,9 @@ p.lead {
 .subheading {
   text-transform: uppercase;
   font-weight: 500;
-  font-family: 'Saira Extra Condensed', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  font-family: "Saira Extra Condensed", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 1.5rem;
 }
 
@@ -72,7 +81,7 @@ p.lead {
 }
 
 .social-icons a:hover {
-  background-color: #BD5D38;
+  background-color: #bd5d38;
 }
 
 .dev-icons {
@@ -80,7 +89,7 @@ p.lead {
 }
 
 .dev-icons .list-inline-item i:hover {
-  color: #BD5D38;
+  color: #bd5d38;
 }
 
 #sideNav .navbar-nav .nav-item .nav-link {
@@ -175,21 +184,22 @@ section.resume-section .resume-item .resume-date {
 }
 
 .bg-primary {
-  background-color: #BD5D38 !important;
+  background-color: #bd5d38 !important;
 }
 
 .text-primary {
-  color: #BD5D38 !important;
+  color: #bd5d38 !important;
 }
 
 a {
-  color: #BD5D38;
+  color: #bd5d38;
 }
 
-a:hover, a:focus, a:active {
+a:hover,
+a:focus,
+a:active {
   color: #824027;
 }
-
 
 .experience-card-black {
   background-color: #1e1e1e;
@@ -201,7 +211,6 @@ a:hover, a:focus, a:active {
   border-radius: 12px;
   transition: all 0.3s ease;
   box-shadow: 0 0 20px rgba(0, 255, 120, 0.1);
-
 }
 .experience-card-white:hover {
   transform: translateY(-5px);
@@ -259,7 +268,6 @@ a:hover, a:focus, a:active {
   letter-spacing: 0.5px;
 }
 
-
 .project-card {
   transition: all 0.3s ease;
   border: 1px solid #e0e0e0;
@@ -282,6 +290,3 @@ a:hover, a:focus, a:active {
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
-
-
-
