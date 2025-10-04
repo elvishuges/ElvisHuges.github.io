@@ -2,6 +2,9 @@
 export class ChatbotController {
   #view;
   #service;
+  #maxMessageBySession = 10;
+  #userMessageCount = 0; // contador de mensagens
+
   constructor({ chatbotView, geminiService }) {
     this.#view = chatbotView;
     this.#service = geminiService;
@@ -25,10 +28,37 @@ export class ChatbotController {
   }
 
   async handleSendMessage(userMessage) {
+    if (userMessage.length > 100) return;
+
+    // Verifica se já atingiu o limite
+    if (this.#userMessageCount >= this.#maxMessageBySession) {
+      this.#view.appendMessage(
+        "⚠️ Você atingiu o limite de mensagens desta sessão. Tente novamente mais tarde!",
+        "bot"
+      );
+      return;
+    }
+
+    this.#userMessageCount++; // incrementa contador
     this.#view.showTyping();
     this.#view.appendMessage(userMessage, "user");
 
-    // Resposta do "service"
+    // Aviso quando chegar em 5 mensagens
+    if (this.#userMessageCount === 5) {
+      this.#view.appendMessage(
+        "ℹ️ Aviso: Você já enviou 5 mensagens nesta sessão.",
+        "bot"
+      );
+    }
+
+    // Aviso quando chegar no limite
+    if (this.#userMessageCount === this.#maxMessageBySession) {
+      this.#view.appendMessage(
+        "🚫 Esta foi sua última mensagem. O limite da sessão foi atingido.",
+        "bot"
+      );
+    }
+
     try {
       const botResponse = await this.#service.sendMessage(userMessage);
       setTimeout(() => {

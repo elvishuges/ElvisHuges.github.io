@@ -54,24 +54,4 @@ export class ChatbotView {
   removeTyping() {
     this.#chatInput.placeholder = "Pergunte sobre Elvis...";
   }
-
-  /**
-   * Se detectar número de menu, transforma em link de WhatsApp
-   * Ex: "1" => link "https://wa.me/5575981642037"
-   */
-  appendMessageWithLink(menuNumber, phoneNumber = "5575981642037") {
-    const p = document.createElement("p");
-    p.classList.add("chat-message", "bot");
-
-    // Verifica se é número válido
-    if (/^\d+$/.test(menuNumber)) {
-      const link = `https://wa.me/${phoneNumber}`;
-      p.innerHTML = `Você selecionou a opção ${menuNumber}. <a href="${link}" target="_blank">Clique aqui para falar no WhatsApp</a>`;
-    } else {
-      p.textContent = menuNumber; // se não for número, apenas exibe
-    }
-
-    this.#chatBody.appendChild(p);
-    this.#chatBody.scrollTop = this.#chatBody.scrollHeight;
-  }
 }
