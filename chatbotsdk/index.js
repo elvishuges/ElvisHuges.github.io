@@ -21,7 +21,9 @@ import { ChatbotController } from "./controllers/chatbotController.js";
   const chatbotView = new ChatbotView(
     "Olá Sou o assistente vistual de Elvis Huges. em que posso ajudá-lo"
   );
-  const geminiService = new GeminiService("http://localhost:3000/api/gemini");
+  const geminiService = new GeminiService(
+    "http://ec2-18-208-250-82.compute-1.amazonaws.com:3000/api/gemini"
+  );
   const controller = new ChatbotController({ chatbotView, geminiService });
   controller.init();
 })();
