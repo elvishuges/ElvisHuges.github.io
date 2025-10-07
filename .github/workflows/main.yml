@@ -1,1 +1,39 @@
+name: Deploy HTML to EC2
 
+on:
+  push:
+    branches:
+      - master # ou "main", se for o nome da sua branch principal
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      EC2_SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
+      EC2_URL: "ec2-18-234-111-150.compute-1.amazonaws.com"
+      EC2_USERNAME: "ubuntu"
+      APP_DIR: "/home/ubuntu/frontend"
+
+    steps:
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${EC2_SSH_PRIVATE_KEY}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H $EC2_URL >> ~/.ssh/known_hosts
+
+      - name: Deploy project
+        run: |
+          ssh $EC2_USERNAME@$EC2_URL "
+            set -e
+            mkdir -p $APP_DIR
+            cd $APP_DIR
+
+            if [ ! -d .git ]; then
+              git clone https://github.com/elvishuges/ElvisHuges.github.io.git .
+              git checkout master
+            else
+              git fetch origin master
+              git reset --hard origin/master
+            fi
+          "
