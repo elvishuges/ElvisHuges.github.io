@@ -28,49 +28,59 @@ export class ChatbotController {
   }
 
   async handleSendMessage(userMessage) {
-    if (userMessage.length > 100) return;
+    if (!userMessage || userMessage.trim() === "") return;
 
-    // Verifica se já atingiu o limite
-    if (this.#userMessageCount >= this.#maxMessageBySession) {
+    // Limita o tamanho da mensagem
+    if (userMessage.length > 100) {
       this.#view.appendMessage(
-        "⚠️ Você atingiu o limite de mensagens desta sessão. Tente novamente mais tarde!",
+        "⚠️ A mensagem é muito longa. Tente ser mais breve.",
         "bot"
       );
       return;
     }
 
-    this.#userMessageCount++; // incrementa contador
-    this.#view.showTyping();
     this.#view.appendMessage(userMessage, "user");
+    this.#view.showTyping();
 
-    // Aviso quando chegar em 5 mensagens
-    if (this.#userMessageCount === 5) {
-      this.#view.appendMessage(
-        "ℹ️ Aviso: Você já enviou 5 mensagens nesta sessão.",
-        "bot"
-      );
-    }
-
-    // Aviso quando chegar no limite
-    if (this.#userMessageCount === this.#maxMessageBySession) {
-      this.#view.appendMessage(
-        "🚫 Esta foi sua última mensagem. O limite da sessão foi atingido.",
-        "bot"
-      );
-    }
-
-    try {
-      const botResponse = await this.#service.sendMessage(userMessage);
-      setTimeout(() => {
-        this.#view.appendMessage(botResponse, "bot");
-        this.#view.removeTyping();
-      }, 500);
-    } catch (error) {
+    // --- Fluxo temporário: funcionalidade fora do ar ---
+    setTimeout(() => {
       this.#view.removeTyping();
+
+      // Mensagem principal
       this.#view.appendMessage(
-        "Ocorreu um erro inesperado. Desculpe. Estou entrando em contato com Elvis para solucionar.",
+        "🚧 No momento, esta funcionalidade está temporariamente interrompida.",
         "bot"
       );
-    }
+
+      // Mensagem de ajuda básica
+      this.#view.appendMessage(
+        "Posso responder perguntas simples por aqui. Caso precise de suporte direto, fale com *Elvis* no WhatsApp: 📱 (75) 98164-2037",
+        "bot"
+      );
+
+      // Respostas básicas automáticas
+      const lowerMsg = userMessage.toLowerCase();
+      let basicReply = null;
+
+      if (lowerMsg.includes("oi") || lowerMsg.includes("olá")) {
+        basicReply = "Olá! 😊 Como posso te ajudar?";
+      } else if (
+        lowerMsg.includes("horário") ||
+        lowerMsg.includes("funciona")
+      ) {
+        basicReply = "Atendemos de segunda a sexta, das 8h às 18h.";
+      } else if (
+        lowerMsg.includes("contato") ||
+        lowerMsg.includes("telefone")
+      ) {
+        basicReply = "Você pode chamar no WhatsApp 📞 (75) 98164-2037.";
+      } else if (lowerMsg.includes("obrigado") || lowerMsg.includes("valeu")) {
+        basicReply = "De nada! 😉";
+      }
+
+      if (basicReply) {
+        setTimeout(() => this.#view.appendMessage(basicReply, "bot"), 600);
+      }
+    }, 800);
   }
 }
