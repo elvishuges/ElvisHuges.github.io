@@ -1,13 +1,12 @@
-// ChatbotController.js
 export class ChatbotController {
   #view;
   #service;
   #maxMessageBySession = 10;
-  #userMessageCount = 0; // contador de mensagens
+  #userMessageCount = 0;
 
-  constructor({ chatbotView, geminiService }) {
-    this.#view = chatbotView;
-    this.#service = geminiService;
+  constructor({ view, service }) {
+    this.#view = view;
+    this.#service = service;
   }
 
   init() {
@@ -42,45 +41,12 @@ export class ChatbotController {
     this.#view.appendMessage(userMessage, "user");
     this.#view.showTyping();
 
-    // --- Fluxo temporário: funcionalidade fora do ar ---
-    setTimeout(() => {
-      this.#view.removeTyping();
+    const basicReply = await this.#service.getAnswer(userMessage);
 
-      // Mensagem principal
-      this.#view.appendMessage(
-        "🚧 No momento, esta funcionalidade está temporariamente interrompida.",
-        "bot"
-      );
-
-      // Mensagem de ajuda básica
-      this.#view.appendMessage(
-        "Posso responder perguntas simples por aqui. Caso precise de suporte direto, fale com *Elvis* no WhatsApp: 📱 (75) 98164-2037",
-        "bot"
-      );
-
-      // Respostas básicas automáticas
-      const lowerMsg = userMessage.toLowerCase();
-      let basicReply = null;
-
-      if (lowerMsg.includes("oi") || lowerMsg.includes("olá")) {
-        basicReply = "Olá! 😊 Como posso te ajudar?";
-      } else if (
-        lowerMsg.includes("horário") ||
-        lowerMsg.includes("funciona")
-      ) {
-        basicReply = "Atendemos de segunda a sexta, das 8h às 18h.";
-      } else if (
-        lowerMsg.includes("contato") ||
-        lowerMsg.includes("telefone")
-      ) {
-        basicReply = "Você pode chamar no WhatsApp 📞 (75) 98164-2037.";
-      } else if (lowerMsg.includes("obrigado") || lowerMsg.includes("valeu")) {
-        basicReply = "De nada! 😉";
-      }
-
-      if (basicReply) {
-        setTimeout(() => this.#view.appendMessage(basicReply, "bot"), 600);
-      }
-    }, 800);
+    if (basicReply) {
+      setTimeout(() => {
+        this.#view.appendMessage(basicReply, "bot");
+      }, 600);
+    }
   }
 }

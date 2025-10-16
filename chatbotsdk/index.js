@@ -1,6 +1,7 @@
 import { ChatbotView } from "./views/chatbotView.js";
 import { GeminiService } from "./services/geminiService.js";
 import { ChatbotController } from "./controllers/chatbotController.js";
+import { SimpleAnswerFakeService } from "./services/simpleAnswerFakeService.js";
 
 (async () => {
   const root = new URL("../", import.meta.url);
@@ -18,12 +19,16 @@ import { ChatbotController } from "./controllers/chatbotController.js";
   container.innerHTML = html;
   document.body.appendChild(container);
 
-  const chatbotView = new ChatbotView(
-    "Olá Sou o assistente vistual de Elvis Huges. em que posso ajudá-lo"
+  const view = new ChatbotView(
+    "Olá Sou o assistente vistual de Elvis Huges. Para melhor atendimento, Você pode falar com *Elvis* pelo WhatsApp: 📱 (75) 98164-2037. Como que posso ajudá-lo?"
   );
-  const geminiService = new GeminiService(
-    "http://18.234.111.150:3000/api/gemini"
-  );
-  const controller = new ChatbotController({ chatbotView, geminiService });
+  // const geminiService = new GeminiService(
+  //   "http://18.234.111.150:3000/api/gemini"
+  // );
+  const service = new SimpleAnswerFakeService(1);
+  const controller = new ChatbotController({
+    view,
+    service,
+  });
   controller.init();
 })();
