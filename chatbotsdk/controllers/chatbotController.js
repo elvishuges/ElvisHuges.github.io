@@ -1,8 +1,6 @@
 export class ChatbotController {
   #view;
   #service;
-  #maxMessageBySession = 10;
-  #userMessageCount = 0;
 
   constructor({ view, service }) {
     this.#view = view;
@@ -42,6 +40,7 @@ export class ChatbotController {
     this.#view.showTyping();
 
     const basicReply = await this.#service.getAnswer(userMessage);
+    this.#view.removeTyping();
 
     if (basicReply) {
       setTimeout(() => {

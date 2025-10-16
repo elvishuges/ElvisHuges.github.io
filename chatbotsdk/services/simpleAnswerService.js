@@ -1,5 +1,5 @@
 // SimpleAnswerFakeService.js
-export class SimpleAnswerFakeService {
+export class SimpleAnswerService {
   constructor(answerDelaySec = 1) {
     this.answerDelaySec = answerDelaySec;
   }
@@ -12,16 +12,16 @@ export class SimpleAnswerFakeService {
     const responses = [
       {
         keywords: ["oi", "olá", "ola", "bom dia", "boa tarde", "boa noite"],
-        answer: "Olá! Como posso te ajudar?",
+        answer: "Olá! 👋 Tudo bem? Como posso te ajudar hoje?",
       },
       {
-        keywords: ["sites", "site", "app", "apps"],
+        keywords: ["sites", "site", "app", "apps", "sistema", "sistemas"],
         answer:
-          "Se a pertunga é sobre desenvolvimento de siste, Elvis Desenvolve Sites, aplicativos e etc.",
+          "Se a dúvida for sobre desenvolvimento, o *Elvis* cria sites, aplicativos e sistemas sob medida. 🚀",
       },
       {
-        keywords: ["horário", "funciona", "abre", "fecha"],
-        answer: "Atendemos de segunda a sexta, das 8h às 18h. 🕗",
+        keywords: ["horário", "funciona", "abre", "fecha", "expediente"],
+        answer: "Nosso atendimento é de segunda a sexta, das 8h às 18h. 🕗",
       },
       {
         keywords: [
@@ -31,18 +31,19 @@ export class SimpleAnswerFakeService {
           "zap",
           "numero",
           "número",
+          "falar",
         ],
         answer:
-          "Você pode falar com *Elvis* pelo WhatsApp: 📱 (75) 98164-2037.",
+          "Você pode entrar em contato com *Elvis* pelo WhatsApp: 📱 (75) 98164-2037.",
       },
       {
-        keywords: ["obrigado", "valeu", "agradecido", "thanks"],
-        answer: "De nada!",
+        keywords: ["obrigado", "valeu", "agradecido", "thanks", "agradeço"],
+        answer: "De nada! 😄 Fico feliz em ajudar.",
       },
       {
-        keywords: ["ajuda", "problema", "erro", "bug"],
+        keywords: ["ajuda", "problema", "erro", "bug", "duvida", "dúvida"],
         answer:
-          "Posso tentar ajudar com dúvidas simples! Para suporte completo, fale no WhatsApp: 📞 (75) 98164-2037.",
+          "Posso tentar ajudar com dúvidas simples por aqui. Para suporte técnico completo, fale direto com *Elvis* no WhatsApp: 📞 (75) 98164-2037.",
       },
     ];
 
