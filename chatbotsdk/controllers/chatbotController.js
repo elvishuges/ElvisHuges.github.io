@@ -25,10 +25,12 @@ export class ChatbotController {
   }
 
   async handleSendMessage(userMessage) {
+    console.log("userMessage", userMessage.length);
+
     if (!userMessage || userMessage.trim() === "") return;
 
     // Limita o tamanho da mensagem
-    if (userMessage.length > 100) {
+    if (userMessage.length > 50) {
       this.#view.appendMessage(
         "⚠️ A mensagem é muito longa. Tente ser mais breve.",
         "bot"
