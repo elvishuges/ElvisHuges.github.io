@@ -1,4 +1,4 @@
-export class ChatbotView {
+export class ChatboxView {
   #sendBtn = document.querySelector("#send-chat-btn");
   #openBtn = document.querySelector("#open-chat-btn");
   #closeBtn = document.querySelector(".close-btn");

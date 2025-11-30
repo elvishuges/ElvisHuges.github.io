@@ -1,4 +1,4 @@
-export class ChatbotController {
+export class ChatboxController {
   #view;
   #service;
 

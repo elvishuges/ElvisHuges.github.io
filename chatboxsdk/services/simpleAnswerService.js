@@ -45,6 +45,45 @@ export class SimpleAnswerService {
         answer:
           "Posso tentar ajudar com dúvidas simples por aqui. Para suporte técnico completo, fale direto com *Elvis* no WhatsApp: 📞 (75) 98164-2037.",
       },
+      // NOVAS RESPOSTAS PARA MAIOR COBERTURA DE TÓPICOS
+      {
+        keywords: [
+          "orçamento",
+          "orcamento",
+          "preço",
+          "custo",
+          "quanto custa",
+          "cotação",
+          "cotacao",
+          "valor",
+        ],
+        answer:
+          "Para solicitar um orçamento, basta descrever seu projeto ou ideia para *Elvis* pelo WhatsApp 📱 (75) 98164-2037. Ele fará uma análise e enviará os valores!",
+      },
+      {
+        keywords: [
+          "portfólio",
+          "portfolio",
+          "trabalhos",
+          "exemplos",
+          "projetos",
+          "ver",
+        ],
+        answer:
+          "O *Elvis* tem diversos projetos de sucesso! Para ver exemplos de sites e apps que ele desenvolveu, é só pedir o link do portfólio no WhatsApp: 📱 (75) 98164-2037.",
+      },
+      {
+        keywords: [
+          "endereço",
+          "local",
+          "onde fica",
+          "sede",
+          "localização",
+          "localizacao",
+        ],
+        answer:
+          "O trabalho de desenvolvimento é realizado de forma remota, atendendo clientes de todo o Brasil, o que garante mais agilidade e flexibilidade!",
+      },
     ];
 
     const found = responses.find((resp) =>
