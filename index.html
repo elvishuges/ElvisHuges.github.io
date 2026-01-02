@@ -303,7 +303,7 @@
       <div class="project-image mb-3">
         <img src="img/tcc.png" alt="Mockup Empreendedorismo" class="img-fluid rounded">
       </div>
-      <h5 class="mb-2">Projeto TCC – Quasar</h5>
+      <h5 class="mb-2">Projeto GENEBOOK-UI – Quasar</h5>
       <p class="flex-grow-1">Projeto tem com objetivo gerar um arquivo JSON que representa o fluxo de um Jogo (Adventure Game) de acordo com as informações adicionados pelo usuário nas telas.</p>
       <div class="project-links mt-3">
         <a href="https://genebook-ui.vercel.app/#/" target="_blank" class="btn btn-sm btn-outline-success me-2">
@@ -316,80 +316,91 @@
     </div>
   </div>
 
-    <div class="col-md-6 col-lg-4 pt-2">
-    <div class="project-card bg-white text-dark p-3 rounded shadow-sm h-100 d-flex flex-column">
-      <div class="project-image mb-3" 
-      style="
-      height: 130px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    ">
-        <img  style="
-        height: 100%;
-        width: 100%;
-      "src="img/image.png" alt="Mockup Empreendedorismo" class="img-fluid rounded">
+<div class="col-md-6 col-lg-4 pt-2">
+  <div class="project-card bg-white text-dark p-3 rounded shadow-sm h-100 d-flex flex-column">
+    
+    <div id="carouselMatrix" class="carousel slide " data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselMatrix" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselMatrix" data-slide-to="1"></li>
+      </ol>
+
+      <div class="carousel-inner rounded" style="height: 180px; ">
+        <div class="carousel-item active">
+          <img src="img/matrix1.png"  class="d-block w-100" style="height: 130px; object-fit: cover;" alt="Matrix Game Screen 1">
+        </div>
+        <div class="carousel-item">
+          <img src="img/matrix2.png" class="d-block w-100" style="height: 130px; object-fit: cover;" alt="Matrix Game Screen 2">
+        </div>        
       </div>
-      <h5 class="mb-2">Matrix-game – Javascript Vanilla</h5>
-      <p class="flex-grow-1">Jogo desenvolvido em javascript. Tem como objetivo fazer perguntar ao usuário sobre assuntos diversos de tecnologia. Cada acerto gera um conhecimento que é usado para vencer o jogo.</p>
-      <div class="project-links mt-3">
-        <a href="https://elvishuges.github.io/matrix-game/" target="_blank" class="btn btn-sm btn-outline-success me-2">
-          🔗 Live Demo
-        </a>
-        <a href="https://github.com/elvishuges/matrix-game" target="_blank" class="btn btn-sm btn-outline-dark">
-          🐙 GitHub
-        </a>
-      </div>
+
+      <a class="carousel-control-prev" href="#carouselMatrix" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true" style="background-color: rgba(0,0,0,0.5); border-radius: 50%;"></span>
+        <span class="sr-only">Anterior</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselMatrix" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true" style="background-color: rgba(0,0,0,0.5); border-radius: 50%;"></span>
+        <span class="sr-only">Próximo</span>
+      </a>
     </div>
-  </div>
-
-  <!-- Projeto 3 Crhonos Pomodoro -->
-  <div class="col-md-6 col-lg-4 pt-2">
-    <div class="project-card bg-white text-dark p-3 rounded shadow-sm h-100 d-flex flex-column">
-  <div
-    class="project-image mb-3"
-    style="
-      height: 130px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    "
-  >
-    <img
-      src="img/chronos-pomodoro.png"
-      alt="Mockup Empreendedorismo"
-      class="img-fluid rounded"
-      style="
-        height: 100%;
-        width: 100%;
-      "
-    />
-  </div>
-
-  <h5 class="mb-2">Chronos Pomodoro - ReactJs (Ainda não Finalizado)</h5>
-  <p class="flex-grow-1">
-    Projeto desenvolvido no curso de React JS 19 e Next.js 15.
-  </p>
-
-  <div class="project-links pt-2">
-    <a
-      href="https://chronos-pomorodo-react-js.vercel.app/"
-      target="_blank"
-      class="btn btn-sm btn-outline-success me-2"
-    >
-      🔗 Live Demo
-    </a>
-    <a
-      href="https://github.com/elvishuges/chronos-pomorodo-react-js"
-      target="_blank"
-      class="btn btn-sm btn-outline-dark"
-    >
-      🐙 GitHub
-    </a>
+    <h5 class="mb-2">Matrix-game – Javascript Vanilla</h5>
+    <p class="flex-grow-1">Jogo desenvolvido em javascript. Tem como objetivo fazer perguntar ao usuário sobre assuntos diversos de tecnologia. Cada acerto gera um conhecimento que é usado para vencer o jogo.</p>
+    
+    <div class="project-links mt-3">
+      <a href="https://elvishuges.github.io/matrix-game/" target="_blank" class="btn btn-sm btn-outline-success me-2">
+        🔗 Live Demo
+      </a>
+      <a href="https://github.com/elvishuges/matrix-game" target="_blank" class="btn btn-sm btn-outline-dark">
+        🐙 GitHub
+      </a>
+    </div>
   </div>
 </div>
 
+  <!-- Projeto 3 Crhonos Pomodoro -->
+ <div class="col-md-6 col-lg-4 pt-2">
+  <div class="project-card bg-white text-dark p-3 rounded shadow-sm h-100 d-flex flex-column">
+    
+    <div id="carouselChronos" class="carousel slide mb-3" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselChronos" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselChronos" data-slide-to="1"></li>
+      </ol>
+
+      <div class="carousel-inner rounded" style="height: 130px;">
+        <div class="carousel-item active">
+          <img src="img/chronos-pomodoro.png" class="d-block w-100" style="height: 130px; object-fit: cover;" alt="Chronos Pomodoro 1">
+        </div>
+        <div class="carousel-item">
+          <img src="img/chronos-pomodoro2.png" class="d-block w-100" style="height: 130px; object-fit: cover;" alt="Chronos Pomodoro 2">
+        </div>        
+      </div>
+
+      <a class="carousel-control-prev" href="#carouselChronos" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true" style="background-color: rgba(0,0,0,0.5); border-radius: 50%;"></span>
+        <span class="sr-only">Anterior</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselChronos" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true" style="background-color: rgba(0,0,0,0.5); border-radius: 50%;"></span>
+        <span class="sr-only">Próximo</span>
+      </a>
+    </div>
+
+    <h5 class="mb-2">Chronos Pomodoro - ReactJs</h5>
+    <p class="flex-grow-1">
+      Projeto desenvolvido no curso de React JS 19 e Next.js 15.
+    </p>
+
+    <div class="project-links mt-auto pt-2">
+      <a href="https://chronos-pomorodo-react-js.vercel.app/" target="_blank" class="btn btn-sm btn-outline-success me-2">
+        🔗 Live Demo
+      </a>
+      <a href="https://github.com/elvishuges/chronos-pomorodo-react-js" target="_blank" class="btn btn-sm btn-outline-dark">
+        🐙 GitHub
+      </a>
+    </div>
   </div>
+</div>
 
     <!-- Projeto Figma -->
   <div class="col-md-6 col-lg-4 pt-2">

@@ -329,3 +329,9 @@ hr.m-0 {
 #about-text {
   color: #ccc;
 }
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0,0,0,0.3); /* Adiciona um fundo escuro suave nas setas */
+    border-radius: 50%;
+}
