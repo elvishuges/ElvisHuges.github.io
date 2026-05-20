@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+  <meta name="description" content="Portfolio - Elvis Huges, Engenheiro da Computação e Desenvolvedor Full Stack">
+  <meta name="author" content="Elvis Huges">
+
+  <title>Elvis Huges | Dev & Computer Engineer</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Fontes e Ícones Modernos -->
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-principal: #0b0f19; /* Fundo escuro deep tech */
+      --bg-cards: #111827; /* Cinza azulado escuro para os blocos */
+      --cor-primaria: #0d6efd; /* Azul clássico */
+      --cor-accent: #00f2fe; /* Azul ciano neon */
+      --texto-claro: #ffffff; /* Texto principal do bloco em branco puro */
+      --texto-mutado: #9ca3af; /* Cinza claro para descrições em fundo escuro */
+      --texto-preto-abs: #000000; /* Preto absoluto solicitado */
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-principal);
+      color: var(--texto-claro);
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      padding-top: 70px;
+      padding-bottom: 70px; /* Espaço para a barra PWA no mobile */
+    }
+
+    @media (min-width: 992px) {
+      body {
+        padding-bottom: 0px;
+      }
+    }
+
+    /* Navbar superior (Desktop) */
+    .navbar-moderna {
+      background: rgba(11, 15, 25, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(13, 110, 253, 0.3);
+      z-index: 1030;
+    }
+
+    .nav-link {
+      color: var(--texto-mutado) !important;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.2s;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--cor-accent) !important;
+      text-shadow: 0 0 10px rgba(0, 242, 254, 0.6);
+    }
+
+    /* BARRA ESTILO PWA (Mobile Bottom Navigation) */
+    .pwa-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 65px;
+      background: rgba(17, 24, 39, 0.97);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(13, 110, 253, 0.4);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      z-index: 1040;
+      box-shadow: 0 -5px 20px rgba(0,0,0,0.5);
+    }
+
+    .pwa-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--texto-mutado);
+      text-decoration: none;
+      font-size: 0.75rem;
+      font-weight: bold;
+      width: 100%;
+      height: 100%;
+      transition: all 0.2s;
+    }
+
+    .pwa-item i {
+      font-size: 1.25rem;
+      margin-bottom: 2px;
+    }
+
+    .pwa-item:hover, .pwa-item.active {
+      color: var(--cor-accent);
+    }
+
+    /* Fontes estritas de Engenharia */
+    .font-code {
+      font-family: 'Fira Code', monospace;
+    }
+
+    /* Ajustes estritos de visibilidade e Texto Preto */
+    .txt-preto-estrito {
+      color: var(--texto-preto-abs) !important;
+      font-weight: 700 !important;
+    }
+
+    /* Textos explicativos dentro dos cards escuros (Garante visibilidade) */
+    .txt-card-escuro {
+      color: var(--texto-mutado) !important;
+    }
+
+    /* Hero Section Responsiva */
+    .hero-section {
+      padding: 3rem 0;
+    }
+
+    .profile-img-container {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 992px) {
+      .hero-section {
+        padding: 6rem 0;
+      }
+      .profile-img-container {
+        width: 280px;
+        height: 280px;
+      }
+    }
+
+    /* Animação Cyber constante ativa em qualquer tela */
+    .profile-img-container::before {
+      content: '';
+      position: absolute;
+      top: -6px;
+      left: -6px;
+      right: -6px;
+      bottom: -6px;
+      border: 3px dashed var(--cor-accent);
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: spin Tech_Rotation 8s linear infinite;
+    }
+
+    .img-premium {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid var(--cor-primaria);
+      box-shadow: 0 0 20px rgba(13, 110, 253, 0.6);
+    }
+
+    /* Cards Estilo Dashboard Otimizados para Responsividade */
+    .card-premium {
+      background: var(--bg-cards);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 1.5rem;
+      height: 100%;
+      transition: all 0.25s ease;
+    }
+
+    .card-premium:hover {
+      border-color: var(--cor-accent);
+      box-shadow: 0 8px 20px rgba(0, 242, 254, 0.15);
+    }
+
+    /* Tags */
+    .tag-tech {
+      background: rgba(13, 110, 253, 0.15);
+      color: #00f2fe;
+      border: 1px solid rgba(13, 110, 253, 0.4);
+      padding: 0.3rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-family: 'Fira Code', monospace;
+      display: inline-block;
+      margin: 0.25rem;
+      font-weight: 600;
+    }
+
+    /* Banner da Empresa Responsivo */
+    .empresa-banner {
+      background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+      border: 1px solid rgba(0, 242, 254, 0.3);
+      border-radius: 16px;
+      padding: 2rem;
+    }
+
+    @media (min-width: 992px) {
+      .empresa-banner {
+        padding: 3.5rem;
+      }
+    }
+
+    #about-text {
+      min-height: 140px;
+    }
+
+    .blinking-cursor {
+      color: var(--cor-accent);
+      animation: blink 0.8s infinite;
+      font-weight: bold;
+    }
+
+    /* BOTÃO DO CHAT FLUTUANTE */
+    .floating-chat-btn {
+      position: fixed;
+      bottom: 85px; /* Altura ajustada para não cobrir a barra PWA no mobile */
+      right: 20px;
+      width: 55px;
+      height: 55px;
+      background: linear-gradient(135deg, var(--cor-primaria) 0%, #00f2fe 100%);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      box-shadow: 0 4px 15px rgba(0, 242, 254, 0.4);
+      z-index: 1050;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .floating-chat-btn:hover {
+      transform: scale(1.1) rotate(5deg);
+      color: white;
+      box-shadow: 0 6px 20px rgba(0, 242, 254, 0.6);
+    }
+
+    @media (min-width: 992px) {
+      .floating-chat-btn {
+        bottom: 30px; /* Volta para a posição padrão em telas grandes */
+        right: 30px;
+      }
+    }
+
+    @keyframes blink { 50% { opacity: 0; } }
+    @keyframes Tech_Rotation { 100% { transform: rotate(360deg); } }
+
+    .secao-titulo {
+      font-weight: 800;
+      color: #ffffff;
+      position: relative;
+      padding-bottom: 15px;
+      margin-bottom: 2.5rem;
+    }
+
+    .secao-titulo::after {
+      content: '</>';
+      font-family: 'Fira Code', monospace;
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      color: var(--cor-accent);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+
+<body id="page-top">
+
+  <!-- NAVBAR DESKTOP (Oculta no Mobile para parecer App) -->
+  <nav class="navbar navbar-expand-lg fixed-top navbar-moderna py-3 d-none d-lg-block navbar-dark">
+    <div class="container">
+      <a class="navbar-brand fw-bold font-code fs-4" href="#page-top">
+        <span class="text-primary">&lt;</span>Elvis<span class="text-info">Dev</span><span class="text-primary"> /&gt;</span>
+      </a>
+      <div class="collapse navbar-collapse justify-content-end">
+        <ul class="navbar-nav gap-2">
+          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">Sobre</a></li>
+          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#empresa">Sua Empresa</a></li>
+          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">Experiência</a></li>
+          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#projects">Projetos</a></li>
+          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#blog">Blog</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PWA BOTTOM NAV BAR (Visível apenas em Mobile/Tablet) -->
+  <div class="pwa-nav d-lg-none">
+    <a href="#about" class="pwa-item active"><i class="fas fa-user"></i><span>Sobre</span></a>
+    <a href="#empresa" class="pwa-item"><i class="fas fa-briefcase"></i><span>Empresa</span></a>
+    <a href="#skills" class="pwa-item"><i class="fas fa-laptop-code"></i><span>Skills</span></a>
+    <a href="#projects" class="pwa-item"><i class="fas fa-folder-open"></i><span>Projetos</span></a>
+    <a href="#blog" class="pwa-item"><i class="fas fa-blog"></i><span>Blog</span></a>
+  </div>
+
+  <!-- CHAT FLUTUANTE RECOLOCADO (Responsivo e com z-index alto) -->
+ 
+
+  <!-- CONTAINER PRINCIPAL DOS DADOS -->
+  <div class="container px-4">
+
+    <!-- HERO / CORPO PRINCIPAL -->
+    <section class="hero-section" id="about">
+      <div class="row align-items-center g-4 flex-column-reverse flex-lg-row">
+        <div class="col-lg-7 text-center text-lg-start">
+          <div class="font-code text-info small mb-2">// Engenheiro de Computação & Systems Developer</div>
+          <h1 class="display-4 fw-bold mb-3 text-white">Elvis <span class="text-primary">Huges</span></h1>
+          
+          <p id="about-text" class="lead font-code mb-4" style="font-size: 1rem; line-height: 1.6;">
+            <span id="typewriter-text" class="text-light">Graduado em Engenharia da Computação pela Universidade Estadual de Feira de Santana (UEFS)...</span>
+          </p>
+
+          <div class="d-flex gap-2 justify-content-center justify-content-lg-start mt-4 flex-wrap">
+            <a href="https://www.linkedin.com/in/elvis-huges-41043897/" target="_blank" class="btn btn-primary px-4 rounded-3 fw-bold"><i class="fab fa-linkedin-in me-2"></i>LinkedIn</a>
+            <a href="https://github.com/elvishuges" target="_blank" class="btn btn-outline-light px-4 rounded-3 font-code">GitHub()</a>
+          </div>
+        </div>
+        <div class="col-lg-5 text-center">
+          <!-- Imagem garantida no Mobile com a animação giratória sem sumir -->
+          <div class="profile-img-container mb-3 mb-lg-0">
+            <img class="img-fluid img-premium" src="img/profile.jpg" alt="Elvis Huges" onerror="this.src='https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?q=80&w=400'">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO EMPRESA -->
+    <section class="py-4" id="empresa">
+      <div class="empresa-banner shadow-lg">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-8">
+            <span class="text-info font-code small">[ corporativo / consultoria ]</span>
+            <h2 class="fw-bold mt-2 mb-3 text-white">Huges Tech Soluções Inteligentes</h2>
+            <p class="text-light opacity-75 mb-4 small">
+              Especialistas em traduzir regras corporativas complexas (sistemas de cartórios, fluxos clínicos e integrações governamentais) em arquiteturas limhas e softwares de alto desempenho. Fornecemos sustentação e engenharia sob medida.
+            </p>
+            <div class="row g-2 small font-code text-white">
+              <div class="col-md-6"><i class="fas fa-terminal text-info me-2"></i>Clean & Hexagonal Architecture</div>
+              <div class="col-md-6"><i class="fas fa-terminal text-info me-2"></i>Integração Estrita de APIs & GraphQL</div>
+            </div>
+          </div>
+          <div class="col-lg-4 text-center">
+            <div class="p-3 rounded-3 bg-white shadow">
+              <h6 class="fw-bold txt-preto-estrito mb-2">Desenvolva com Especialistas</h6>
+              <p class="small text-dark mb-3">Consultoria ágil, escopo fechado ou alocação técnica imediata.</p>
+              <a href="mailto:elvishuges@hot.com" class="btn btn-dark w-100 py-2 rounded-3 fw-bold">Orçamento / Contato</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIÊNCIA -->
+    <section class="py-4" id="experience">
+      <h2 class="secao-titulo">Experiência Profissional</h2>
+      <div class="row g-3">
+        
+        <div class="col-12">
+          <div class="card-premium d-flex flex-column flex-md-row justify-content-between gap-3">
+            <div>
+              <span class="badge bg-primary text-white mb-2 font-code">Ativo</span>
+              <h3 class="fw-bold fs-5 text-white mb-1">Analista Desenvolvedor 2</h3>
+              <p class="text-info fw-semibold small mb-2"><i class="fas fa-building me-1"></i> Qintess · <span class="text-muted fw-normal">📍 Remoto (São Paulo)</span></p>
+              <p class="txt-card-escuro small mb-3">Engenharia de software focada na criação de ecossistemas reativos, análise de impacto arquitetural e consumo ágil de microsserviços corporativos.</p>
+              <div class="d-flex flex-wrap">
+                <span class="tag-tech">Vue.js 3</span><span class="tag-tech">TypeScript</span><span class="tag-tech">Vuetify</span><span class="tag-tech">Spring Boot</span>
+              </div>
+            </div>
+            <div class="text-md-end">
+              <span class="text-info small font-code">2026 — Presente</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="card-premium d-flex flex-column flex-md-row justify-content-between gap-3">
+            <div>
+              <h3 class="fw-bold fs-5 text-white mb-1">Fullstack Developer</h3>
+              <p class="text-primary fw-semibold small mb-2"><i class="fas fa-building me-1"></i> Vollare - IT Services</p>
+              <p class="txt-card-escuro small mb-3">Arquitetura e engenharia aplicadas ao sistema central do 1º Registro de Imóveis de Feira de Santana. Criação de microsserviços integrados às APIs governamentais do TJBA.</p>
+              <div class="d-flex flex-wrap">
+                <span class="tag-tech">Node.js</span><span class="tag-tech">Vue.js 2/3</span><span class="tag-tech">GraphQL</span><span class="tag-tech">REST APIs</span>
+              </div>
+            </div>
+            <div class="text-md-end">
+              <span class="text-muted small font-code">2023 — 2026</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="py-4" id="skills">
+      <h2 class="secao-titulo">Stack Tecnológica</h2>
+      <div class="row g-3">
+        <div class="col-md-4">
+          <div class="card-premium">
+            <h5 class="fw-bold mb-3 text-info font-code fs-6">&lt;Frontend /&gt;</h5>
+            <div class="d-flex flex-wrap">
+              <span class="tag-tech">Vue.js 3</span><span class="tag-tech">React.js</span><span class="tag-tech">TypeScript</span><span class="tag-tech">Vuetify</span><span class="tag-tech">Quasar</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-premium">
+            <h5 class="fw-bold mb-3 text-info font-code fs-6">&lt;Backend /&gt;</h5>
+            <div class="d-flex flex-wrap">
+              <span class="tag-tech">Node.js</span><span class="tag-tech">GraphQL</span><span class="tag-tech">Spring Boot</span><span class="tag-tech">Java</span><span class="tag-tech">Sequelize</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-premium">
+            <h5 class="fw-bold mb-3 text-info font-code fs-6">&lt;Infra /&gt;</h5>
+            <div class="d-flex flex-wrap">
+              <span class="tag-tech">Docker</span><span class="tag-tech">CI/CD</span><span class="tag-tech">AWS</span><span class="tag-tech">Actions</span><span class="tag-tech">Git</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJETOS -->
+    <section class="py-4" id="projects">
+      <h2 class="secao-titulo">Aplicações Produzidas</h2>
+      <div class="row g-3">
+        
+        <div class="col-md-6 col-lg-4">
+          <div class="card-premium d-flex flex-column p-0 overflow-hidden">
+            <img src="img/chronos-pomodoro.png" class="w-100" style="height: 140px; object-fit: cover;" onerror="this.src='https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?q=80&w=400'">
+            <div class="p-3 flex-grow-1 d-flex flex-column">
+              <h5 class="fw-bold mb-1 text-white fs-6">Chronos Pomodoro</h5>
+              <p class="txt-card-escuro small flex-grow-1">Aplicação performática estruturada voltada à otimização e controle de tempo produtivo extremo.</p>
+              <div class="d-flex gap-2 mt-3">
+                <a href="https://chronos-pomorodo-react-js.vercel.app/" target="_blank" class="btn btn-sm btn-primary w-50 fw-bold">Demo</a>
+                <a href="https://github.com/elvishuges/chronos-pomorodo-react-js" target="_blank" class="btn btn-sm btn-outline-light w-50 font-code">code()</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="card-premium d-flex flex-column p-0 overflow-hidden">
+            <img src="img/tcc.png" class="w-100" style="height: 140px; object-fit: cover;" onerror="this.src='https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=400'">
+            <div class="p-3 flex-grow-1 d-flex flex-column">
+              <h5 class="fw-bold mb-1 text-white fs-6">GENEBOOK-UI</h5>
+              <p class="txt-card-escuro small flex-grow-1">Modelador de árvores lógicas estruturadas que exporta fluxos dinâmicos organizados em JSON.</p>
+              <div class="d-flex gap-2 mt-3">
+                <a href="https://genebook-ui.vercel.app/#/" target="_blank" class="btn btn-sm btn-primary w-50 fw-bold">Demo</a>
+                <a href="https://github.com/elvishuges/GENEBOOK-UI" target="_blank" class="btn btn-sm btn-outline-light w-50 font-code">code()</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="card-premium d-flex flex-column p-0 overflow-hidden">
+            <img src="img/kanban1.png" class="w-100" style="height: 140px; object-fit: cover;" onerror="this.src='https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=400'">
+            <div class="p-3 flex-grow-1 d-flex flex-column">
+              <h5 class="fw-bold mb-1 text-white fs-6">Weekly Kanban</h5>
+              <p class="txt-card-escuro small flex-grow-1">Gerenciador de quadros ágeis interativos focado no controle dinâmico de tarefas semanais.</p>
+              <div class="d-flex gap-2 mt-3">
+                <a href="https://elvishuges.github.io/Weekly-Kanban/" target="_blank" class="btn btn-sm btn-primary w-50 fw-bold">Demo</a>
+                <a href="https://github.com/elvishuges/matrix-game" target="_blank" class="btn btn-sm btn-outline-light w-50 font-code">code()</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- BLOG -->
+    <section class="py-4" id="blog">
+      <h2 class="secao-titulo">Artigos & Log Técnico</h2>
+      <div class="row g-3">
+        
+        <div class="col-md-6">
+          <div class="card-premium bg-white p-4 shadow-sm border-0">
+            <span class="text-primary small font-code fw-bold">[ architecture ]</span>
+            <h4 class="fw-bold my-2 txt-preto-estrito">Implementando Clean Architecture no Ecossistema Vue 3</h4>
+            <p class="text-dark small mb-0 opacity-75">Como isolar regras de domínio de forma desacoplada dos drivers visuais e componentes do ecossistema Vue utilizando TypeScript estrito.</p>
+            <span class="text-muted small d-block mt-3">📅 Maio, 2026</span>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="card-premium bg-white p-4 shadow-sm border-0">
+            <span class="text-primary small font-code fw-bold">[ performance ]</span>
+            <h4 class="fw-bold my-2 txt-preto-estrito">Migrando Estruturas de Código para Monorepos com Turborepo</h4>
+            <p class="text-dark small mb-0 opacity-75">Estratégias para centralizar o compartilhamento de tipos e regras de negócio complexas entre múltiplos clients frontend de forma otimizada.</p>
+            <span class="text-muted small d-block mt-3">📅 Abril, 2026</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="py-4 border-top border-secondary mt-5" style="background: #070a12;">
+    <div class="container text-center text-muted small font-code">
+      <p class="mb-0">&copy; 2026 Elvis Huges // Engineered with precision.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts Otimizados -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const fullText = "Graduado em Engenharia da Computação pela Universidade Estadual de Feira de Santana (UEFS), com forte conhecimento em desenvolvimento de sistemas. Atuei como Desenvolvedor Full Stack na Vollare, participando da implementação de novas funcionalidades e da manutenção de sistemas existentes do 1º Registro de Imóveis de Feira de Santana. Possuo experiência tanto em front-end quanto em back-end, com foco na entrega de soluções eficientes e escaláveis. Também tenho vivência no desenvolvimento de sistemas clínicos e sistemas de gestão tradicionais.";
+        
+        const textElement = document.getElementById('typewriter-text');
+        textElement.innerHTML = ''; 
+        let i = 0;
+        const speed = 15;
+
+        function typeWriter() {
+            if (i < fullText.length) {
+                textElement.innerHTML += fullText.charAt(i);
+                i++;
+                setTimeout(typeWriter, speed);
+            } else {
+                textElement.innerHTML += '<span class="blinking-cursor">|</span>';
+            }
+        }
+        typeWriter();
+    });
+
+    // Controle Ativo de Destaque nos Itens PWA Mobile ao clicar/Scroll
+    $(document).ready(function () {
+      $('.pwa-item, .js-scroll-trigger').click(function () {
+        $('.pwa-item').removeClass('active');
+        const targetHref = $(this).attr('href');
+        $(`.pwa-item[href="${targetHref}"]`).addClass('active');
+      });
+    });
+  </script>
+  <script type="module" defer src="./chatboxsdk/index.js"></script>
+</body>
+</html>
