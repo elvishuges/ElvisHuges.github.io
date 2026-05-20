@@ -6,12 +6,12 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Portfolio de Elvis Huges - Engenheiro da Computação e Desenvolvedor Fullstack">
   <meta name="author" content="Elvis Huges">
 
   <!-- Meta Tags PWA / Mobile -->
-  <meta name="theme-color" content="#007bff">
+  <meta name="theme-color" content="#007bff"> <!-- Altere para a cor primária do seu tema -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Elvis Huges">
@@ -33,66 +33,6 @@
   <!-- Custom styles for this template -->
   <link href="css/modern.css" rel="stylesheet">
   <link href="css/resume.css" rel="stylesheet">
-
-  <!-- Estilos Customizados para transformar o Menu em Bottom Nav no Mobile -->
-  <style>
-    @media (max-width: 991.98px) {
-      /* Remove a barra do topo padrão do bootstrap template */
-      #sideNav {
-        top: auto !important;
-        bottom: 0 !important;
-        width: 100% !important;
-        height: 65px !important;
-        padding: 0 !important;
-        background-color: #007bff !important; /* Força a cor de fundo */
-        box-shadow: 0 -2px 10px rgba(0,0,0,0.15);
-        z-index: 1050;
-      }
-
-      /* Esconde a foto/marca e o botão hambúrguer que não são mais necessários */
-      #sideNav .navbar-brand, 
-      #sideNav .navbar-toggler {
-        display: none !important;
-      }
-
-      /* Força o menu a ficar sempre aberto e distribuído na horizontal */
-      #sideNav .navbar-collapse {
-        display: block !important;
-        collapse: none !important;
-        width: 100% !important;
-      }
-
-      #sideNav .navbar-nav {
-        flex-direction: row !important;
-        justify-content: space-around !important;
-        width: 100% !important;
-        height: 100%;
-        margin: 0 !important;
-        padding: 0 !important;
-      }
-
-      #sideNav .nav-item {
-        flex: 1;
-        text-align: center;
-      }
-
-      #sideNav .nav-link {
-        padding: 10px 0 !important;
-        font-size: 0.85rem !important;
-        text-transform: uppercase;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 65px;
-      }
-
-      /* Adiciona espaçamento na parte inferior da página para o menu não cobrir o conteúdo */
-      body {
-        padding-bottom: 75px !important;
-      }
-    }
-  </style>
 </head>
 
 <!-- Google tag (gtag.js) -->
@@ -101,13 +41,13 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
+
   gtag('config', 'G-L4X3MEJRZH');
 </script>
 
 <body id="page-top">
   <script type="module" defer src="./chatboxsdk/index.js"></script>
 
-  <!-- O Layout se mantém intacto, o CSS injetado acima altera o comportamento apenas no Mobile -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
     <a class="navbar-brand js-scroll-trigger" href="#page-top">
       <span class="d-block d-lg-none">Elvis Huges</span>
@@ -122,29 +62,19 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#about">
-            <i class="fas fa-user d-block d-lg-none mb-1"></i>Sobre
-          </a>
+          <a class="nav-link js-scroll-trigger" href="#about">Sobre</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#experience">
-            <i class="fas fa-briefcase d-block d-lg-none mb-1"></i>Experiências
-          </a>
+          <a class="nav-link js-scroll-trigger" href="#experience">Experiências</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#education">
-            <i class="fas fa-graduation-cap d-block d-lg-none mb-1"></i>Formação
-          </a>
+          <a class="nav-link js-scroll-trigger" href="#education">Formação</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#skills">
-            <i class="fas fa-code d-block d-lg-none mb-1"></i>Skills
-          </a>
+          <a class="nav-link js-scroll-trigger" href="#skills">Skills</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#projects">
-            <i class="fas fa-folder d-block d-lg-none mb-1"></i>Projetos
-          </a>
+          <a class="nav-link js-scroll-trigger" href="#projects">Projetos</a>
         </li>
       </ul>
     </div>
@@ -342,6 +272,7 @@
       <div class="w-100">
         <h2 class="mb-3">Skills</h2>
         <div class="row gy-4">
+          <!-- Front-end Skills -->
           <div class="col-md-6 p-1">
             <div class="skill-card bg-white text-dark p-4 rounded shadow-sm h-100">
               <h4 class="mb-3">Frontend</h4>
@@ -359,6 +290,7 @@
             </div>
           </div>
 
+          <!-- Backend Skills -->
           <div class="col-md-6 p-1">
             <div class="skill-card bg-white text-dark p-4 rounded shadow-sm h-100">
               <h4 class="mb-3">Backend</h4>
@@ -373,6 +305,7 @@
             </div>
           </div>
 
+          <!-- DevOps & Tools -->
           <div class="col-md-6 p-1">
             <div class="skill-card bg-white text-dark p-4 rounded shadow-sm h-100">
               <h4 class="mb-3">DevOps & Ferramentas</h4>
@@ -399,6 +332,7 @@
         <div class="subheading mb-3">Alguns projetos realizados</div>
         <div class="row g-4">
 
+          <!-- Projeto 1 TCC -->
           <div class="col-md-6 col-lg-4 pt-2">
             <div class="project-card bg-white text-dark p-3 rounded shadow-sm h-100 d-flex flex-column">
               <div class="project-image mb-3">
@@ -417,6 +351,7 @@
             </div>
           </div>
 
+          <!-- Projeto 2 Kanban -->
           <div class="col-md-6 col-lg-4 pt-2">
             <div class="project-card bg-white text-dark p-3 rounded shadow-sm h-100 d-flex flex-column">
               <div id="carouselMatrix" class="carousel slide" data-ride="carousel">
@@ -446,6 +381,7 @@
             </div>
           </div>
 
+          <!-- Projeto 3 Chronos Pomodoro -->
           <div class="col-md-6 col-lg-4 pt-2">
             <div class="project-card bg-white text-dark p-3 rounded shadow-sm h-100 d-flex flex-column">
               <div id="carouselChronos" class="carousel slide mb-3" data-ride="carousel">
@@ -475,6 +411,7 @@
             </div>
           </div>
 
+          <!-- Projeto 4 Figma -->
           <div class="col-md-6 col-lg-4 pt-2">
             <div class="project-card bg-white text-dark p-3 rounded shadow-sm h-100 d-flex flex-column">
               <div class="project-image mb-3">
@@ -527,6 +464,12 @@
 
         typeWriter();
     });
+
+    $(document).ready(function () {
+      $('.js-scroll-trigger').click(function () {
+        $('.navbar-collapse').collapse('hide');
+      });
+    });
   </script>
 
   <!-- Registro do Service Worker para PWA -->
@@ -534,12 +477,22 @@
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('./sw.js')
-          .then(reg => console.log('Service Worker registrado!', reg.scope))
-          .catch(err => console.log('Falha no SW:', err));
+          .then(reg => console.log('Service Worker registrado com sucesso!', reg.scope))
+          .catch(err => console.log('Falha ao registrar o Service Worker:', err));
       });
     }
   </script>
 
+  <!-- Portfolio Modals -->
   <div id="secondLoader"></div>
+
+  <script type="text/javascript">var submitted = false;</script>
+  <script type="text/javascript">
+    $('#gform').on('submit', function (e) {
+      $('#gform *').fadeOut(2000);
+      $('#gform').prepend("<div class='alert alert-primary' align='center' role='alert'> Sua mensagem foi enviada, Obrigado. Aguarde a resposta !!</div>");
+    });
+  </script>
+
 </body>
 </html>
