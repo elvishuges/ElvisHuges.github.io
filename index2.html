@@ -3,556 +3,660 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
-  <meta name="description" content="Portfolio - Elvis Huges, Engenheiro da Computação e Desenvolvedor Full Stack">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Portfolio de Elvis Huges - Engenheiro da Computação e Desenvolvedor Fullstack">
   <meta name="author" content="Elvis Huges">
 
-  <title>Elvis Huges | Dev & Computer Engineer</title>
+  <meta name="theme-color" content="#0d1117">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Elvis Huges">
+  <link class="rounded-circle" rel="apple-touch-icon" href="img/icon-192.png">
 
-  <!-- Bootstrap 5 CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="manifest" href="manifest.json">
+
+  <title>Elvis Huges</title>
+
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
   
-  <!-- Fontes e Ícones Modernos -->
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet">
 
   <style>
     :root {
-      --bg-principal: #0b0f19; /* Fundo escuro deep tech */
-      --bg-cards: #111827; /* Cinza azulado escuro para os blocos */
-      --cor-primaria: #0d6efd; /* Azul clássico */
-      --cor-accent: #00f2fe; /* Azul ciano neon */
-      --texto-claro: #ffffff; /* Texto principal do bloco em branco puro */
-      --texto-mutado: #9ca3af; /* Cinza claro para descrições em fundo escuro */
-      --texto-preto-abs: #000000; /* Preto absoluto solicitado */
+      /* Cores do Tema Escuro estilo GitHub */
+      --primary-color: #007bff;
+      --github-dark-bg: #0d1117;
+      --github-card-bg: #161b22;
+      --github-border: #30363d;
+      --text-light: #c9d1d9;
+      --text-muted: #8b949e;
     }
 
     body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--bg-principal);
-      color: var(--texto-claro);
-      overflow-x: hidden;
-      scroll-behavior: smooth;
-      padding-top: 70px;
-      padding-bottom: 70px; /* Espaço para a barra PWA no mobile */
+      font-family: 'Muli', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+      background-color: var(--github-dark-bg);
+      color: var(--text-light);
+      font-size: 15px;
+      line-height: 1.6;
+      /* Espaço extra no fim para o menu mobile não cobrir o conteúdo */
+      padding-bottom: 80px; 
     }
 
-    @media (min-width: 992px) {
+    @media (min-width: 768px) {
       body {
-        padding-bottom: 0px;
+        padding-bottom: 0;
       }
     }
 
-    /* Navbar superior (Desktop) */
-    .navbar-moderna {
-      background: rgba(11, 15, 25, 0.95);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(13, 110, 253, 0.3);
-      z-index: 1030;
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Saira Extra Condensed', -apple-system, sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #f0f6fc;
     }
 
-    .nav-link {
-      color: var(--texto-mutado) !important;
-      font-weight: 600;
-      font-size: 0.95rem;
-      transition: all 0.2s;
+    /* Navbar Global Escura (Desktop) */
+    .gh-header {
+      background-color: #161b22;
+      border-bottom: 1px solid var(--github-border);
+      padding: 12px 32px;
+    }
+    .gh-header a {
+      color: #f0f6fc;
+      font-weight: 700;
     }
 
-    .nav-link:hover, .nav-link.active {
-      color: var(--cor-accent) !important;
-      text-shadow: 0 0 10px rgba(0, 242, 254, 0.6);
+    /* Menu de Abas (Desktop) */
+    .gh-tabs-container {
+      border-bottom: 1px solid var(--github-border);
+      margin-bottom: 24px;
+      background: var(--github-dark-bg);
+    }
+    .gh-nav-link {
+      display: flex;
+      align-items: center;
+      padding: 10px 16px;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-light) !important;
+      border-bottom: 3px solid transparent;
+      text-decoration: none !important;
+      text-transform: uppercase;
+      font-family: 'Saira Extra Condensed', sans-serif;
+    }
+    .gh-nav-link i {
+      color: var(--text-muted);
+      margin-right: 8px;
+    }
+    .gh-nav-link.active {
+      color: var(--primary-color) !important;
+      border-bottom-color: var(--primary-color);
+    }
+    .gh-counter {
+      background-color: var(--primary-color);
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 10px;
+      margin-left: 6px;
     }
 
-    /* BARRA ESTILO PWA (Mobile Bottom Navigation) */
-    .pwa-nav {
+    /* NOVO: Menu Fixo no Footer (Estilo App Mobile) */
+    .mobile-nav-footer {
       position: fixed;
       bottom: 0;
       left: 0;
       right: 0;
       height: 65px;
-      background: rgba(17, 24, 39, 0.97);
-      backdrop-filter: blur(10px);
-      border-top: 1px solid rgba(13, 110, 253, 0.4);
+      background-color: #161b22;
+      border-top: 1px solid var(--github-border);
       display: flex;
       justify-content: space-around;
       align-items: center;
-      z-index: 1040;
-      box-shadow: 0 -5px 20px rgba(0,0,0,0.5);
+      z-index: 1030;
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
     }
-
-    .pwa-item {
+    .mobile-nav-item {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      color: var(--texto-mutado);
-      text-decoration: none;
-      font-size: 0.75rem;
-      font-weight: bold;
-      width: 100%;
+      color: var(--text-muted);
+      font-size: 11px;
+      font-family: 'Saira Extra Condensed', sans-serif;
+      text-transform: uppercase;
+      text-decoration: none !important;
+      font-weight: 700;
+      flex: 1;
       height: 100%;
-      transition: all 0.2s;
     }
-
-    .pwa-item i {
-      font-size: 1.25rem;
+    .mobile-nav-item i {
+      font-size: 20px;
       margin-bottom: 2px;
     }
-
-    .pwa-item:hover, .pwa-item.active {
-      color: var(--cor-accent);
+    .mobile-nav-item.active {
+      color: var(--primary-color);
     }
 
-    /* Fontes estritas de Engenharia */
-    .font-code {
-      font-family: 'Fira Code', monospace;
-    }
-
-    /* Ajustes estritos de visibilidade e Texto Preto */
-    .txt-preto-estrito {
-      color: var(--texto-preto-abs) !important;
-      font-weight: 700 !important;
-    }
-
-    /* Textos explicativos dentro dos cards escuros (Garante visibilidade) */
-    .txt-card-escuro {
-      color: var(--texto-mutado) !important;
-    }
-
-    /* Hero Section Responsiva */
-    .hero-section {
-      padding: 3rem 0;
-    }
-
-    .profile-img-container {
-      position: relative;
-      width: 200px;
-      height: 200px;
+    /* Profile Sidebar - Foto Reduzida */
+    .avatar-container {
+      max-width: 130px;
       margin: 0 auto;
     }
-
-    @media (min-width: 992px) {
-      .hero-section {
-        padding: 6rem 0;
-      }
-      .profile-img-container {
-        width: 280px;
-        height: 280px;
+    @media (min-width: 768px) {
+      .avatar-container {
+        margin: 0;
       }
     }
-
-    /* Animação Cyber constante ativa em qualquer tela */
-    .profile-img-container::before {
-      content: '';
-      position: absolute;
-      top: -6px;
-      left: -6px;
-      right: -6px;
-      bottom: -6px;
-      border: 3px dashed var(--cor-accent);
+    .profile-avatar {
+      border: 3px solid var(--primary-color);
       border-radius: 50%;
-      opacity: 0.8;
-      animation: spin Tech_Rotation 8s linear infinite;
-    }
-
-    .img-premium {
       width: 100%;
+      height: auto;
+    }
+    .vcard-names {
+      padding: 12px 0;
+    }
+    .vcard-fullname {
+      font-size: 32px;
+      line-height: 1.1;
+      color: #f0f6fc;
+      margin-bottom: 0;
+    }
+    .text-primary-theme {
+      color: var(--primary-color);
+    }
+    .vcard-username {
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--text-muted);
+    }
+    .vcard-bio {
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+    .vcard-details {
+      border-top: 1px solid var(--github-border);
+      padding-top: 16px;
+      font-size: 14px;
+      list-style: none;
+      padding-left: 0;
+    }
+    .vcard-detail-item {
+      padding-left: 24px;
+      position: relative;
+      margin-bottom: 10px;
+    }
+    .vcard-detail-item i {
+      position: absolute;
+      left: 0;
+      top: 4px;
+      color: var(--primary-color);
+      width: 16px;
+      text-align: center;
+    }
+    .vcard-details a {
+      color: var(--text-light);
+    }
+
+    /* Cards de Projetos e Formação */
+    .gh-card {
+      background: var(--github-card-bg);
+      border: 1px solid var(--github-border);
+      border-radius: 6px;
+      padding: 18px;
+      margin-bottom: 16px;
       height: 100%;
-      object-fit: cover;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .gh-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--primary-color);
+    }
+    .gh-card-title {
+      font-size: 18px;
+      font-weight: 700;
+    }
+    .gh-card-title a {
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+    .gh-card-title a:hover {
+      text-decoration: underline;
+    }
+    .gh-card-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 8px;
+      margin-bottom: 16px;
+    }
+
+    /* Solução do bug do overlap: Clearfix e Flexbox explícito na row de skills */
+    .skills-row {
+      display: flex;
+      flex-wrap: wrap;
+      margin-right: -15px;
+      margin-left: -15px;
+    }
+    .skills-section-title {
+      clear: both;
+      margin-top: 38px;
+      margin-bottom: 30px;
+    }
+
+    /* Linha do tempo (Experiências) */
+    .gh-timeline {
+      position: relative;
+      padding-left: 32px;
+      border-left: 3px solid var(--github-border);
+      margin-left: 16px;
+    }
+    .gh-timeline-item {
+      position: relative;
+      margin-bottom: 32px;
+    }
+    .gh-timeline-badge {
+      position: absolute;
+      left: -43px;
+      background: var(--github-dark-bg);
+      border: 3px solid var(--primary-color);
       border-radius: 50%;
-      border: 4px solid var(--cor-primaria);
-      box-shadow: 0 0 20px rgba(13, 110, 253, 0.6);
-    }
-
-    /* Cards Estilo Dashboard Otimizados para Responsividade */
-    .card-premium {
-      background: var(--bg-cards);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 12px;
-      padding: 1.5rem;
-      height: 100%;
-      transition: all 0.25s ease;
-    }
-
-    .card-premium:hover {
-      border-color: var(--cor-accent);
-      box-shadow: 0 8px 20px rgba(0, 242, 254, 0.15);
+      width: 22px;
+      height: 22px;
     }
 
     /* Tags */
-    .tag-tech {
-      background: rgba(13, 110, 253, 0.15);
-      color: #00f2fe;
-      border: 1px solid rgba(13, 110, 253, 0.4);
-      padding: 0.3rem 0.6rem;
-      border-radius: 6px;
-      font-size: 0.75rem;
-      font-family: 'Fira Code', monospace;
+    .tag {
       display: inline-block;
-      margin: 0.25rem;
-      font-weight: 600;
+      background: #21262d;
+      color: #f0f6fc;
+      padding: 4px 12px;
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 4px;
+      border: 1px solid var(--github-border);
+      margin-right: 5px;
+      margin-bottom: 6px;
+      text-transform: lowercase;
+      text-decoration: none !important;
+    }
+    .tag:hover {
+      background: var(--primary-color);
+      color: white;
+      border-color: var(--primary-color);
     }
 
-    /* Banner da Empresa Responsivo */
-    .empresa-banner {
-      background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
-      border: 1px solid rgba(0, 242, 254, 0.3);
-      border-radius: 16px;
-      padding: 2rem;
+    /* Box README.md Escura */
+    .readme-box {
+      border: 1px solid var(--github-border);
+      border-radius: 6px;
+      background: var(--github-dark-bg);
+      margin-bottom: 24px;
     }
-
-    @media (min-width: 992px) {
-      .empresa-banner {
-        padding: 3.5rem;
-      }
+    .readme-header {
+      padding: 10px 16px;
+      background: #161b22;
+      border-bottom: 1px solid var(--github-border);
+      font-size: 14px;
+      font-weight: 700;
     }
-
-    #about-text {
-      min-height: 140px;
+    .readme-body {
+      padding: 24px;
     }
 
     .blinking-cursor {
-      color: var(--cor-accent);
-      animation: blink 0.8s infinite;
-      font-weight: bold;
+      font-weight: 700;
+      animation: blink 1s step-end infinite;
     }
-
-    /* BOTÃO DO CHAT FLUTUANTE */
-    .floating-chat-btn {
-      position: fixed;
-      bottom: 85px; /* Altura ajustada para não cobrir a barra PWA no mobile */
-      right: 20px;
-      width: 55px;
-      height: 55px;
-      background: linear-gradient(135deg, var(--cor-primaria) 0%, #00f2fe 100%);
-      color: white;
-      border-radius: 50%;
-      display: flex;
+    @keyframes blink {
+      from, to { color: transparent }
+      50% { color: var(--primary-color); }
+    }
+    
+    .social-icons a {
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.5rem;
-      box-shadow: 0 4px 15px rgba(0, 242, 254, 0.4);
-      z-index: 1050;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-decoration: none;
+      height: 35px;
+      width: 35px;
+      background-color: #21262d;
+      color: #fff;
+      border-radius: 100%;
+      margin-right: 8px;
+      border: 1px solid var(--github-border);
     }
-
-    .floating-chat-btn:hover {
-      transform: scale(1.1) rotate(5deg);
-      color: white;
-      box-shadow: 0 6px 20px rgba(0, 242, 254, 0.6);
-    }
-
-    @media (min-width: 992px) {
-      .floating-chat-btn {
-        bottom: 30px; /* Volta para a posição padrão em telas grandes */
-        right: 30px;
-      }
-    }
-
-    @keyframes blink { 50% { opacity: 0; } }
-    @keyframes Tech_Rotation { 100% { transform: rotate(360deg); } }
-
-    .secao-titulo {
-      font-weight: 800;
-      color: #ffffff;
-      position: relative;
-      padding-bottom: 15px;
-      margin-bottom: 2.5rem;
-    }
-
-    .secao-titulo::after {
-      content: '</>';
-      font-family: 'Fira Code', monospace;
-      position: absolute;
-      bottom: -10px;
-      left: 0;
-      color: var(--cor-accent);
-      font-size: 0.85rem;
+    .social-icons a:hover {
+      background-color: var(--primary-color);
     }
   </style>
 </head>
 
-<body id="page-top">
+<body>
 
-  <!-- NAVBAR DESKTOP (Oculta no Mobile para parecer App) -->
-  <nav class="navbar navbar-expand-lg fixed-top navbar-moderna py-3 d-none d-lg-block navbar-dark">
-    <div class="container">
-      <a class="navbar-brand fw-bold font-code fs-4" href="#page-top">
-        <span class="text-primary">&lt;</span>Elvis<span class="text-info">Dev</span><span class="text-primary"> /&gt;</span>
+  <nav class="navbar navbar-expand-md gh-header d-none d-md-flex">
+    <div class="container-xl p-0 d-flex justify-content-between w-100">
+      <a href="#" class="navbar-brand d-flex align-items-center m-0">
+        <i class="fab fa-github fa-lg mr-2 text-primary-theme"></i> <span>Elvis Huges</span>
       </a>
-      <div class="collapse navbar-collapse justify-content-end">
-        <ul class="navbar-nav gap-2">
-          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">Sobre</a></li>
-          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#empresa">Sua Empresa</a></li>
-          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">Experiência</a></li>
-          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Skills</a></li>
-          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#projects">Projetos</a></li>
-          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#blog">Blog</a></li>
-        </ul>
+      <div>
+        <a class="btn btn-sm btn-outline-primary text-light font-weight-bold px-3">HUGESOFT</a>
       </div>
     </div>
   </nav>
 
-  <!-- PWA BOTTOM NAV BAR (Visível apenas em Mobile/Tablet) -->
-  <div class="pwa-nav d-lg-none">
-    <a href="#about" class="pwa-item active"><i class="fas fa-user"></i><span>Sobre</span></a>
-    <a href="#empresa" class="pwa-item"><i class="fas fa-briefcase"></i><span>Empresa</span></a>
-    <a href="#skills" class="pwa-item"><i class="fas fa-laptop-code"></i><span>Skills</span></a>
-    <a href="#projects" class="pwa-item"><i class="fas fa-folder-open"></i><span>Projetos</span></a>
-    <a href="#blog" class="pwa-item"><i class="fas fa-blog"></i><span>Blog</span></a>
-  </div>
-
-  <!-- CHAT FLUTUANTE RECOLOCADO (Responsivo e com z-index alto) -->
- 
-
-  <!-- CONTAINER PRINCIPAL DOS DADOS -->
-  <div class="container px-4">
-
-    <!-- HERO / CORPO PRINCIPAL -->
-    <section class="hero-section" id="about">
-      <div class="row align-items-center g-4 flex-column-reverse flex-lg-row">
-        <div class="col-lg-7 text-center text-lg-start">
-          <div class="font-code text-info small mb-2">// Engenheiro de Computação & Systems Developer</div>
-          <h1 class="display-4 fw-bold mb-3 text-white">Elvis <span class="text-primary">Huges</span></h1>
-          
-          <p id="about-text" class="lead font-code mb-4" style="font-size: 1rem; line-height: 1.6;">
-            <span id="typewriter-text" class="text-light">Graduado em Engenharia da Computação pela Universidade Estadual de Feira de Santana (UEFS)...</span>
-          </p>
-
-          <div class="d-flex gap-2 justify-content-center justify-content-lg-start mt-4 flex-wrap">
-            <a href="https://www.linkedin.com/in/elvis-huges-41043897/" target="_blank" class="btn btn-primary px-4 rounded-3 fw-bold"><i class="fab fa-linkedin-in me-2"></i>LinkedIn</a>
-            <a href="https://github.com/elvishuges" target="_blank" class="btn btn-outline-light px-4 rounded-3 font-code">GitHub()</a>
+  <div class="container-xl px-3 px-md-4 px-lg-5 my-4">
+    <div class="row">
+      
+      <aside class="col-md-4 col-lg-3 mb-4">
+        <div class="text-center text-md-left">
+          <div class="avatar-container mb-3">
+            <img class="profile-avatar" src="img/profile.jpg" alt="Elvis Huges" onerror="this.src='https://avatars.githubusercontent.com/u/583231?v=4'">
+          </div>
+          <div class="vcard-names">
+            <h1 class="vcard-fullname">Elvis <span class="text-primary-theme">Huges</span></h1>
+            <div class="vcard-username">elvishuges</div>
           </div>
         </div>
-        <div class="col-lg-5 text-center">
-          <!-- Imagem garantida no Mobile com a animação giratória sem sumir -->
-          <div class="profile-img-container mb-3 mb-lg-0">
-            <img class="img-fluid img-premium" src="img/profile.jpg" alt="Elvis Huges" onerror="this.src='https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?q=80&w=400'">
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- SEÇÃO EMPRESA -->
-    <section class="py-4" id="empresa">
-      <div class="empresa-banner shadow-lg">
-        <div class="row align-items-center g-4">
-          <div class="col-lg-8">
-            <span class="text-info font-code small">[ corporativo / consultoria ]</span>
-            <h2 class="fw-bold mt-2 mb-3 text-white">Huges Tech Soluções Inteligentes</h2>
-            <p class="text-light opacity-75 mb-4 small">
-              Especialistas em traduzir regras corporativas complexas (sistemas de cartórios, fluxos clínicos e integrações governamentais) em arquiteturas limhas e softwares de alto desempenho. Fornecemos sustentação e engenharia sob medida.
-            </p>
-            <div class="row g-2 small font-code text-white">
-              <div class="col-md-6"><i class="fas fa-terminal text-info me-2"></i>Clean & Hexagonal Architecture</div>
-              <div class="col-md-6"><i class="fas fa-terminal text-info me-2"></i>Integração Estrita de APIs & GraphQL</div>
-            </div>
-          </div>
-          <div class="col-lg-4 text-center">
-            <div class="p-3 rounded-3 bg-white shadow">
-              <h6 class="fw-bold txt-preto-estrito mb-2">Desenvolva com Especialistas</h6>
-              <p class="small text-dark mb-3">Consultoria ágil, escopo fechado ou alocação técnica imediata.</p>
-              <a href="mailto:elvishuges@hot.com" class="btn btn-dark w-100 py-2 rounded-3 fw-bold">Orçamento / Contato</a>
-            </div>
-          </div>
+        <div class="vcard-bio text-muted mt-2 text-center text-md-left">
+          Engenheiro da Computação & Desenvolvedor Fullstack. Rio das Ostras · RJ
         </div>
-      </div>
-    </section>
 
-    <!-- EXPERIÊNCIA -->
-    <section class="py-4" id="experience">
-      <h2 class="secao-titulo">Experiência Profissional</h2>
-      <div class="row g-3">
+        <div class="social-icons my-3 text-center text-md-left">
+          <a target="_blank" href="https://www.linkedin.com/in/elvis-huges-41043897/"><i class="fab fa-linkedin-in"></i></a>
+          <a target="_blank" href="https://github.com/elvishuges"><i class="fab fa-github"></i></a>
+        </div>
+
+        <ul class="vcard-details">
+          <li class="vcard-detail-item"><i class="fas fa-building"></i> <span>Qintess</span></li>
+          <li class="vcard-detail-item"><i class="fas fa-map-marker-alt"></i> <span>Rio das Ostras – RJ</span></li>
+          <li class="vcard-detail-item"><i class="fas fa-envelope"></i> <a href="mailto:elvishuges@hotmail.com">elvishuges@hotmail.com</a></li>
+          <li class="vcard-detail-item"><i class="fas fa-phone"></i> <span>(75) 98164-2037</span></li>
+        </ul>
+      </aside>
+
+      <main id="portfolio-content" class="col-md-8 col-lg-9">
         
-        <div class="col-12">
-          <div class="card-premium d-flex flex-column flex-md-row justify-content-between gap-3">
-            <div>
-              <span class="badge bg-primary text-white mb-2 font-code">Ativo</span>
-              <h3 class="fw-bold fs-5 text-white mb-1">Analista Desenvolvedor 2</h3>
-              <p class="text-info fw-semibold small mb-2"><i class="fas fa-building me-1"></i> Qintess · <span class="text-muted fw-normal">📍 Remoto (São Paulo)</span></p>
-              <p class="txt-card-escuro small mb-3">Engenharia de software focada na criação de ecossistemas reativos, análise de impacto arquitetural e consumo ágil de microsserviços corporativos.</p>
-              <div class="d-flex flex-wrap">
-                <span class="tag-tech">Vue.js 3</span><span class="tag-tech">TypeScript</span><span class="tag-tech">Vuetify</span><span class="tag-tech">Spring Boot</span>
+        <div class="gh-tabs-container d-none d-md-block">
+          <nav class="nav">
+            <a class="gh-nav-link active" id="tab-overview" href="javascript:void(0)" onclick="switchTab('overview')">
+              <i class="fas fa-book-open"></i> Sobre
+            </a>
+            <a class="gh-nav-link" id="tab-experience" href="javascript:void(0)" onclick="switchTab('experience')">
+              <i class="fas fa-history"></i> Experiências <span class="gh-counter">5</span>
+            </a>
+            <a class="gh-nav-link" id="tab-skills" href="javascript:void(0)" onclick="switchTab('skills')">
+              <i class="fas fa-graduation-cap"></i> Formação & Skills
+            </a>
+          </nav>
+        </div>
+
+        <div id="content-overview" class="tab-content-item">
+          <div class="readme-box">
+            <div class="readme-header">
+              <i class="fas fa-book mr-2 text-primary-theme"></i> elvishuges / <span class="text-muted">README.md</span>
+            </div>
+            <div class="readme-body">
+              <p class="lead text-justify mb-0" style="font-size: 15px; color: var(--text-light);">
+                <span id="typewriter-text"></span>
+              </p>
+            </div>
+          </div>
+
+          <h3 class="mb-3 text-secondary">Projetos em Destaque</h3>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <div class="gh-card d-flex flex-column justify-content-between">
+                <div>
+                  <div class="gh-card-title"><i class="far fa-bookmark mr-1 text-muted"></i> <a href="https://genebook-ui.vercel.app/#/" target="_blank">GENEBOOK-UI</a></div>
+                  <p class="gh-card-desc">Gera um arquivo JSON que representa o fluxo de um Jogo de acordo com as informações do usuário.</p>
+                </div>
+                <div>
+                  <a href="https://genebook-ui.vercel.app/#/" target="_blank" class="tag">🔗 Live Demo</a>
+                  <a href="https://github.com/elvishuges/GENEBOOK-UI" target="_blank" class="tag">🐙 GitHub</a>
+                </div>
               </div>
             </div>
-            <div class="text-md-end">
-              <span class="text-info small font-code">2026 — Presente</span>
-            </div>
-          </div>
-        </div>
 
-        <div class="col-12">
-          <div class="card-premium d-flex flex-column flex-md-row justify-content-between gap-3">
-            <div>
-              <h3 class="fw-bold fs-5 text-white mb-1">Fullstack Developer</h3>
-              <p class="text-primary fw-semibold small mb-2"><i class="fas fa-building me-1"></i> Vollare - IT Services</p>
-              <p class="txt-card-escuro small mb-3">Arquitetura e engenharia aplicadas ao sistema central do 1º Registro de Imóveis de Feira de Santana. Criação de microsserviços integrados às APIs governamentais do TJBA.</p>
-              <div class="d-flex flex-wrap">
-                <span class="tag-tech">Node.js</span><span class="tag-tech">Vue.js 2/3</span><span class="tag-tech">GraphQL</span><span class="tag-tech">REST APIs</span>
+            <div class="col-md-6 mb-3">
+              <div class="gh-card d-flex flex-column justify-content-between">
+                <div>
+                  <div class="gh-card-title"><i class="far fa-bookmark mr-1 text-muted"></i> <a href="https://elvishuges.github.io/Weekly-Kanban/" target="_blank">Weekly - Kanban</a></div>
+                  <p class="gh-card-desc">Tabela Kanban limpa para o usuário cadastrar e gerenciar suas tarefas semanais.</p>
+                </div>
+                <div>
+                  <a href="https://elvishuges.github.io/Weekly-Kanban/" target="_blank" class="tag">🔗 Live Demo</a>
+                  <a href="https://github.com/elvishuges/matrix-game" target="_blank" class="tag">🐙 GitHub</a>
+                </div>
               </div>
             </div>
-            <div class="text-md-end">
-              <span class="text-muted small font-code">2023 — 2026</span>
-            </div>
-          </div>
-        </div>
 
-      </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section class="py-4" id="skills">
-      <h2 class="secao-titulo">Stack Tecnológica</h2>
-      <div class="row g-3">
-        <div class="col-md-4">
-          <div class="card-premium">
-            <h5 class="fw-bold mb-3 text-info font-code fs-6">&lt;Frontend /&gt;</h5>
-            <div class="d-flex flex-wrap">
-              <span class="tag-tech">Vue.js 3</span><span class="tag-tech">React.js</span><span class="tag-tech">TypeScript</span><span class="tag-tech">Vuetify</span><span class="tag-tech">Quasar</span>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card-premium">
-            <h5 class="fw-bold mb-3 text-info font-code fs-6">&lt;Backend /&gt;</h5>
-            <div class="d-flex flex-wrap">
-              <span class="tag-tech">Node.js</span><span class="tag-tech">GraphQL</span><span class="tag-tech">Spring Boot</span><span class="tag-tech">Java</span><span class="tag-tech">Sequelize</span>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card-premium">
-            <h5 class="fw-bold mb-3 text-info font-code fs-6">&lt;Infra /&gt;</h5>
-            <div class="d-flex flex-wrap">
-              <span class="tag-tech">Docker</span><span class="tag-tech">CI/CD</span><span class="tag-tech">AWS</span><span class="tag-tech">Actions</span><span class="tag-tech">Git</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJETOS -->
-    <section class="py-4" id="projects">
-      <h2 class="secao-titulo">Aplicações Produzidas</h2>
-      <div class="row g-3">
-        
-        <div class="col-md-6 col-lg-4">
-          <div class="card-premium d-flex flex-column p-0 overflow-hidden">
-            <img src="img/chronos-pomodoro.png" class="w-100" style="height: 140px; object-fit: cover;" onerror="this.src='https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?q=80&w=400'">
-            <div class="p-3 flex-grow-1 d-flex flex-column">
-              <h5 class="fw-bold mb-1 text-white fs-6">Chronos Pomodoro</h5>
-              <p class="txt-card-escuro small flex-grow-1">Aplicação performática estruturada voltada à otimização e controle de tempo produtivo extremo.</p>
-              <div class="d-flex gap-2 mt-3">
-                <a href="https://chronos-pomorodo-react-js.vercel.app/" target="_blank" class="btn btn-sm btn-primary w-50 fw-bold">Demo</a>
-                <a href="https://github.com/elvishuges/chronos-pomorodo-react-js" target="_blank" class="btn btn-sm btn-outline-light w-50 font-code">code()</a>
+            <div class="col-md-6 mb-3">
+              <div class="gh-card d-flex flex-column justify-content-between">
+                <div>
+                  <div class="gh-card-title">
+                    <i class="far fa-bookmark mr-1 text-muted"></i> 
+                    <a href="https://chronos-pomorodo-react-js.vercel.app/" target="_blank">Chronos Pomodoro - ReactJs</a>
+                  </div>
+                  <p class="gh-card-desc">Projeto focado em produtividade estruturado e desenvolvido no curso de React JS 19 e Next.js 15.</p>
+                </div>
+                <div>
+                  <a href="https://chronos-pomorodo-react-js.vercel.app/" target="_blank" class="tag">🔗 Live Demo</a>
+                  <a href="https://github.com/elvishuges/chronos-pomorodo-react-js" target="_blank" class="tag">🐙 GitHub</a>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
 
-        <div class="col-md-6 col-lg-4">
-          <div class="card-premium d-flex flex-column p-0 overflow-hidden">
-            <img src="img/tcc.png" class="w-100" style="height: 140px; object-fit: cover;" onerror="this.src='https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=400'">
-            <div class="p-3 flex-grow-1 d-flex flex-column">
-              <h5 class="fw-bold mb-1 text-white fs-6">GENEBOOK-UI</h5>
-              <p class="txt-card-escuro small flex-grow-1">Modelador de árvores lógicas estruturadas que exporta fluxos dinâmicos organizados em JSON.</p>
-              <div class="d-flex gap-2 mt-3">
-                <a href="https://genebook-ui.vercel.app/#/" target="_blank" class="btn btn-sm btn-primary w-50 fw-bold">Demo</a>
-                <a href="https://github.com/elvishuges/GENEBOOK-UI" target="_blank" class="btn btn-sm btn-outline-light w-50 font-code">code()</a>
+            <div class="col-md-6 mb-3">
+              <div class="gh-card d-flex flex-column justify-content-between">
+                <div>
+                  <div class="gh-card-title">
+                    <i class="far fa-bookmark mr-1 text-muted"></i> 
+                    <a href="https://www.figma.com/proto/CMXQ565nUEtDTjFAF34NKM/Mockup-Empreendedorismo?node-id=64%3A9&scaling=scale-down" target="_blank">Protótipo Mobile – Figma</a>
+                  </div>
+                  <p class="gh-card-desc">Protótipo de interface mobile criado no Figma focado em soluções para um app de empreendedorismo.</p>
+                </div>
+                <div>
+                  <a href="https://www.figma.com/proto/CMXQ565nUEtDTjFAF34NKM/Mockup-Empreendedorismo?node-id=64%3A9&scaling=scale-down" target="_blank" class="tag">🔗 Live Demo</a>
+                  <a href="https://github.com/seuusuario/repositorio" target="_blank" class="tag">🐙 GitHub</a>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="col-md-6 col-lg-4">
-          <div class="card-premium d-flex flex-column p-0 overflow-hidden">
-            <img src="img/kanban1.png" class="w-100" style="height: 140px; object-fit: cover;" onerror="this.src='https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=400'">
-            <div class="p-3 flex-grow-1 d-flex flex-column">
-              <h5 class="fw-bold mb-1 text-white fs-6">Weekly Kanban</h5>
-              <p class="txt-card-escuro small flex-grow-1">Gerenciador de quadros ágeis interativos focado no controle dinâmico de tarefas semanais.</p>
-              <div class="d-flex gap-2 mt-3">
-                <a href="https://elvishuges.github.io/Weekly-Kanban/" target="_blank" class="btn btn-sm btn-primary w-50 fw-bold">Demo</a>
-                <a href="https://github.com/elvishuges/matrix-game" target="_blank" class="btn btn-sm btn-outline-light w-50 font-code">code()</a>
+        <div id="content-experience" class="tab-content-item d-none">
+          <h3 class="mb-4 text-secondary">Experiências</h3>
+          <div class="gh-timeline">
+            <div class="gh-timeline-item">
+              <div class="gh-timeline-badge"></div>
+              <div class="d-flex flex-column flex-sm-row justify-content-between">
+                <h4 class="mb-0">Analista Desenvolvedor 2</h4>
+                <span class="text-muted small">📅 Fev 2026 → Atualmente</span>
+              </div>
+              <div class="mb-2 text-muted small">Qintess · SP</div>
+              <p class="mb-2">Desenvolvimento de sistemas com Vuejs3, Typescript e Vuetify. Integração com APIs em SpringBoot.</p>
+              <div>
+                <span class="tag">javascript</span><span class="tag">Vuejs3</span><span class="tag">Vuetify</span><span class="tag">Typescript</span>
+              </div>
+            </div>
+
+            <div class="gh-timeline-item">
+              <div class="gh-timeline-badge"></div>
+              <div class="d-flex flex-column flex-sm-row justify-content-between">
+                <h4 class="mb-0">Fullstack Developer</h4>
+                <span class="text-muted small">📅 Mar 2023 → Jan 2026</span>
+              </div>
+              <div class="mb-2 text-muted small">Vollare - IT Services · BA</div>
+              <p class="mb-2">Manutenção das funcionalidades do sistema do 1º Registro de Imóveis de Feira de Santana.</p>
+              <div>
+                <span class="tag">javascript</span><span class="tag">Vuejs3</span><span class="tag">nodejs</span><span class="tag">GraphQL</span>
+              </div>
+            </div>
+
+            <div class="gh-timeline-item">
+              <div class="gh-timeline-badge"></div>
+              <div class="d-flex flex-column flex-sm-row justify-content-between">
+                <h4 class="mb-0">Frontend Developer</h4>
+                <span class="text-muted small">📅 Julho 2021 → Março 2023</span>
+              </div>
+              <div class="mb-2 text-muted small"><i class="fas fa-building mr-1"></i> BlockHub Builders · 📍 Feira de Santana – BA</div>
+              <p class="mb-2">Desenvolvimento e testes de sistemas Web. Desenvolvimento de interfaces com Vuejs2 e Bootstrap, testes automatizados com Cypress e consultas usando GraphQL.</p>
+              <div>
+                <span class="tag">javascript</span><span class="tag">vuejs2</span><span class="tag">cypress</span><span class="tag">graphql</span>
+              </div>
+            </div>
+
+            <div class="gh-timeline-item">
+              <div class="gh-timeline-badge"></div>
+              <div class="d-flex flex-column flex-sm-row justify-content-between">
+                <h4 class="mb-0">Estágio Frontend Developer</h4>
+                <span class="text-muted small">📅 Março 2021 → Junho 2021</span>
+              </div>
+              <div class="mb-2 text-muted small"><i class="fas fa-building mr-1"></i> Bocapio/Janoo · 📍 Lençóis – BA</div>
+              <p class="mb-2">Desenvolvimento e implantação de sistemas para uso de usuário da prefeitura de Lençóis. Construção de APIs com NodeJs/Sequelize e integração completa com o front-end.</p>
+              <div>
+                <span class="tag">bootstrap</span><span class="tag">vuejs2</span><span class="tag">nodejs</span><span class="tag">sequelize</span>
+              </div>
+            </div>
+
+            <div class="gh-timeline-item">
+              <div class="gh-timeline-badge"></div>
+              <div class="d-flex flex-column flex-sm-row justify-content-between">
+                <h4 class="mb-0">Web Developer</h4>
+                <span class="text-muted small">📅 Maio 2019 → Junho 2020</span>
+              </div>
+              <div class="mb-2 text-muted small"><i class="fas fa-building mr-1"></i> KAMIKAN · 📍 Feira de Santana – BA</div>
+              <p class="mb-2">Desenvolvimento da parte front-end de sistema de fila de atendimento médico usando Vuejs2 e Vuetify. Extração de requisitos e integração em tempo real via Web Sockets.</p>
+              <div>
+                <span class="tag">vuejs2</span><span class="tag">vuetify</span><span class="tag">web socket</span>
               </div>
             </div>
           </div>
         </div>
 
-      </div>
-    </section>
+        <div id="content-skills" class="tab-content-item d-none">
+          <div class="skills-row">
+  
+            <div class="col-12 mb-4">
+              <h3 class="mb-3 text-secondary">Formação</h3>
+              <div class="gh-card">
+                <h4 class="mb-1" style="font-size: 20px;">Universidade Estadual de Feira de Santana</h4>
+                <div class="text-primary-theme font-weight-bold mb-2">Graduado em Engenharia da Computação</div>
+                <span class="text-muted small">Conclusão: Julho 2023</span>
+              </div>
+            </div>
 
-    <!-- BLOG -->
-    <section class="py-4" id="blog">
-      <h2 class="secao-titulo">Artigos & Log Técnico</h2>
-      <div class="row g-3">
-        
-        <div class="col-md-6">
-          <div class="card-premium bg-white p-4 shadow-sm border-0">
-            <span class="text-primary small font-code fw-bold">[ architecture ]</span>
-            <h4 class="fw-bold my-2 txt-preto-estrito">Implementando Clean Architecture no Ecossistema Vue 3</h4>
-            <p class="text-dark small mb-0 opacity-75">Como isolar regras de domínio de forma desacoplada dos drivers visuais e componentes do ecossistema Vue utilizando TypeScript estrito.</p>
-            <span class="text-muted small d-block mt-3">📅 Maio, 2026</span>
+            <div class="col-12">
+              <h3 class="skills-section-title text-secondary mb-3">Skills</h3>
+              <div class="gh-card">
+                
+                <h5 class="mb-2 text-muted">Frontend</h5>
+                <div class="mb-3">
+                  <a href="https://developer.mozilla.org/pt-BR/docs/Web/HTML" target="_blank" class="tag">html</a>
+                  <a href="https://developer.mozilla.org/pt-BR/docs/Web/CSS" target="_blank" class="tag">css</a>
+                  <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript" target="_blank" class="tag">javascript</a>
+                  <a href="https://vuejs.org/" target="_blank" class="tag">vue.js 2 e 3</a>
+                  <a href="https://react.dev/" target="_blank" class="tag">react.js</a>
+                  <a href="https://reactnative.dev/" target="_blank" class="tag">react native</a>
+                  <a href="https://getbootstrap.com/" target="_blank" class="tag">bootstrap</a>
+                  <a href="https://vuetifyjs.com/" target="_blank" class="tag">vuetify</a>
+                  <a href="https://quasar.dev/" target="_blank" class="tag">quasar</a>
+                </div>
+
+                <h5 class="mb-2 text-muted">Backend</h5>
+                <div class="mb-3">
+                  <a href="https://nodejs.org/" target="_blank" class="tag">node.js</a>
+                  <a href="https://sequelize.org/" target="_blank" class="tag">sequelize</a>
+                  <a href="https://laravel.com/" target="_blank" class="tag">laravel</a>
+                  <a href="https://graphql.org/" target="_blank" class="tag">graphql</a>
+                  <a href="https://spring.io/" target="_blank" class="tag">spring</a>
+                  <a href="https://www.java.com/" target="_blank" class="tag">java</a>
+                </div>
+
+                <h5 class="mb-2 text-muted">DevOps & Ferramentas</h5>
+                <div>
+                  <a href="https://git-scm.com/" target="_blank" class="tag">git</a>
+                  <a href="https://www.redhat.com/pt-br/topics/devops/what-is-ci-cd" target="_blank" class="tag">ci/cd</a>
+                  <a href="https://www.docker.com/" target="_blank" class="tag">docker</a>
+                  <a href="https://docs.github.com/pt/actions" target="_blank" class="tag">github actions</a>
+                  <a href="https://aws.amazon.com/pt/s3/" target="_blank" class="tag">aws - s3</a>
+                  <a href="https://aws.amazon.com/pt/ec2/" target="_blank" class="tag">aws - ec2</a>
+                  <a href="https://aws.amazon.com/pt/rds/" target="_blank" class="tag">aws - rds</a>
+                </div>
+                
+              </div>
+            </div>
+
           </div>
         </div>
 
-        <div class="col-md-6">
-          <div class="card-premium bg-white p-4 shadow-sm border-0">
-            <span class="text-primary small font-code fw-bold">[ performance ]</span>
-            <h4 class="fw-bold my-2 txt-preto-estrito">Migrando Estruturas de Código para Monorepos com Turborepo</h4>
-            <p class="text-dark small mb-0 opacity-75">Estratégias para centralizar o compartilhamento de tipos e regras de negócio complexas entre múltiplos clients frontend de forma otimizada.</p>
-            <span class="text-muted small d-block mt-3">📅 Abril, 2026</span>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-  </div>
-
-  <!-- FOOTER -->
-  <footer class="py-4 border-top border-secondary mt-5" style="background: #070a12;">
-    <div class="container text-center text-muted small font-code">
-      <p class="mb-0">&copy; 2026 Elvis Huges // Engineered with precision.</p>
+      </main>
     </div>
-  </footer>
+  </div>
 
-  <!-- Scripts Otimizados -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <div class="mobile-nav-footer d-flex d-md-none">
+    <a href="javascript:void(0)" class="mobile-nav-item active" id="m-tab-overview" onclick="switchTab('overview')">
+      <i class="fas fa-book-open"></i>
+      <span>Sobre</span>
+    </a>
+    <a href="javascript:void(0)" class="mobile-nav-item" id="m-tab-experience" onclick="switchTab('experience')">
+      <i class="fas fa-history"></i>
+      <span>Experiências</span>
+    </a>
+    <a href="javascript:void(0)" class="mobile-nav-item" id="m-tab-skills" onclick="switchTab('skills')">
+      <i class="fas fa-graduation-cap"></i>
+      <span>Skills</span>
+    </a>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script type="module" defer src="./chatboxsdk/index.js"></script>
 
   <script>
+    // Gerenciador de Abas unificado (Desktop e Mobile App Footer) com comportamento de Scroll
+    function switchTab(tabName) {
+      // Reseta classes do Desktop
+      $('.gh-nav-link').removeClass('active');
+      // Reseta classes do Mobile Footer Menu
+      $('.mobile-nav-item').removeClass('active');
+      
+      // Oculta todos os blocos de conteúdo
+      $('.tab-content-item').addClass('d-none');
+      
+      // Ativa a aba clicada (tanto faz se clicou no topo ou no footer)
+      $('#tab-' + tabName).addClass('active');      // UI Desktop
+      $('#m-tab-' + tabName).addClass('active');    // UI Mobile
+      $('#content-' + tabName).removeClass('d-none'); // Conteúdo
+      
+      // Executa a rolagem para o início do bloco de conteúdo principal
+      const contentTarget = document.getElementById('portfolio-content');
+      if (contentTarget) {
+        contentTarget.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
     document.addEventListener('DOMContentLoaded', function() {
-        const fullText = "Graduado em Engenharia da Computação pela Universidade Estadual de Feira de Santana (UEFS), com forte conhecimento em desenvolvimento de sistemas. Atuei como Desenvolvedor Full Stack na Vollare, participando da implementação de novas funcionalidades e da manutenção de sistemas existentes do 1º Registro de Imóveis de Feira de Santana. Possuo experiência tanto em front-end quanto em back-end, com foco na entrega de soluções eficientes e escaláveis. Também tenho vivência no desenvolvimento de sistemas clínicos e sistemas de gestão tradicionais.";
-        
-        const textElement = document.getElementById('typewriter-text');
-        textElement.innerHTML = ''; 
-        let i = 0;
-        const speed = 15;
-
-        function typeWriter() {
-            if (i < fullText.length) {
-                textElement.innerHTML += fullText.charAt(i);
-                i++;
-                setTimeout(typeWriter, speed);
-            } else {
-                textElement.innerHTML += '<span class="blinking-cursor">|</span>';
-            }
+      const fullText = "Graduado em Engenharia da Computação pela Universidade Estadual de Feira de Santana (UEFS), com forte conhecimento em desenvolvimento de sistemas. Atuei como Desenvolvedor Full Stack na Vollare, participando da implementação de novas funcionalidades e da manutenção de sistemas existentes do 1º Registro de Imóveis de Feira de Santana. Possuo experiência tanto em front-end quanto em back-end, com foco na entrega de soluções eficientes e escaláveis. Também tenho vivência no desenvolvimento de sistemas clínicos e sistemas de gestão tradicionais. ";
+      const textElement = document.getElementById('typewriter-text');
+      let i = 0;
+      function typeWriter() {
+        if (i < fullText.length) {
+          textElement.innerHTML += fullText.charAt(i);
+          i++;
+          setTimeout(typeWriter, 25);
+        } else {
+          textElement.innerHTML += '<span class="blinking-cursor">|</span>';
         }
-        typeWriter();
-    });
-
-    // Controle Ativo de Destaque nos Itens PWA Mobile ao clicar/Scroll
-    $(document).ready(function () {
-      $('.pwa-item, .js-scroll-trigger').click(function () {
-        $('.pwa-item').removeClass('active');
-        const targetHref = $(this).attr('href');
-        $(`.pwa-item[href="${targetHref}"]`).addClass('active');
-      });
+      }
+      typeWriter();
     });
   </script>
-  <script type="module" defer src="./chatboxsdk/index.js"></script>
 </body>
 </html>
