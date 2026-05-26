@@ -337,16 +337,30 @@
 
 <body>
 
-  <nav class="navbar navbar-expand-md gh-header d-none d-md-flex">
-    <div class="container-xl p-0 d-flex justify-content-between w-100">
-      <a href="#" class="navbar-brand d-flex align-items-center m-0">
-        <i class="fab fa-github fa-lg mr-2 text-primary-theme"></i> <span>Elvis Huges</span>
+ <nav class="navbar navbar-expand-md gh-header d-none d-md-flex">
+  <div class="container-xl p-0 d-flex justify-content-between align-items-center w-100">
+
+    <a href="#" class="navbar-brand d-flex align-items-center m-0">
+      <i class="fab fa-github fa-lg mr-2 text-primary-theme"></i>
+      <span>Elvis Huges</span>
+    </a>
+
+    <div class="d-flex align-items-center">
+
+      <a
+        href="./blog.html"
+        class="d-flex align-items-center mr-3 text-decoration-none text-light"
+      >
+        <span>MEU BLOG</span>
       </a>
-      <div>
-        <a class="btn btn-sm btn-outline-primary text-light font-weight-bold px-3">HUGESOFT</a>
-      </div>
+
+      <a class="btn btn-sm btn-outline-primary text-light font-weight-bold px-3">
+        BY HUGESOFT
+      </a>
+
     </div>
-  </nav>
+  </div>
+</nav>
 
   <div class="container-xl px-3 px-md-4 px-lg-5 my-4">
     <div class="row">
@@ -372,7 +386,7 @@
         </div>
 
         <ul class="vcard-details">
-          <li class="vcard-detail-item"><i class="fas fa-building"></i> <span>Qintess</span></li>
+          <li class="vcard-detail-item"><i class="fas fa-building"></i> <span> <a target="_blank" href="https://qintess.com/pt-br">Qintess</a></span></li>
           <li class="vcard-detail-item"><i class="fas fa-map-marker-alt"></i> <span>Rio das Ostras – RJ</span></li>
           <li class="vcard-detail-item"><i class="fas fa-envelope"></i> <a href="mailto:elvishuges@hotmail.com">elvishuges@hotmail.com</a></li>
           <li class="vcard-detail-item"><i class="fas fa-phone"></i> <span>(75) 98164-2037</span></li>
@@ -392,6 +406,7 @@
             <a class="gh-nav-link" id="tab-skills" href="javascript:void(0)" onclick="switchTab('skills')">
               <i class="fas fa-graduation-cap"></i> Formação & Skills
             </a>
+            
           </nav>
         </div>
 
@@ -612,12 +627,20 @@
       <i class="fas fa-graduation-cap"></i>
       <span>Skills</span>
     </a>
+    <a
+  href="./blog.html"
+  class="mobile-nav-item"
+  id="m-tab-blog"
+>
+  <i class="fas fa-blog"></i>
+  <span>BLOG</span>
+</a>
   </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-  <script type="module" defer src="./chatboxsdk/index.js"></script>
+  <!-- <script type="module" defer src="./chatboxsdk/index.js"></script> -->
 
   <script>
     // Gerenciador de Abas unificado (Desktop e Mobile App Footer) com comportamento de Scroll
@@ -646,16 +669,16 @@
       const fullText = "Graduado em Engenharia da Computação pela Universidade Estadual de Feira de Santana (UEFS), com forte conhecimento em desenvolvimento de sistemas. Atuei como Desenvolvedor Full Stack na Vollare, participando da implementação de novas funcionalidades e da manutenção de sistemas existentes do 1º Registro de Imóveis de Feira de Santana. Possuo experiência tanto em front-end quanto em back-end, com foco na entrega de soluções eficientes e escaláveis. Também tenho vivência no desenvolvimento de sistemas clínicos e sistemas de gestão tradicionais. ";
       const textElement = document.getElementById('typewriter-text');
       let i = 0;
-      function typeWriter() {
-        if (i < fullText.length) {
-          textElement.innerHTML += fullText.charAt(i);
-          i++;
-          setTimeout(typeWriter, 25);
-        } else {
-          textElement.innerHTML += '<span class="blinking-cursor">|</span>';
-        }
-      }
-      typeWriter();
+      // function typeWriter() {
+      //   if (i < fullText.length) {
+      //     textElement.innerHTML += fullText.charAt(i);
+      //     i++;
+      //     setTimeout(typeWriter, 25);
+      //   } else {
+        //   }
+        // }
+        textElement.innerHTML += fullText;
+        typeWriter();
     });
   </script>
 </body>
