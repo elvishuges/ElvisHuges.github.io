@@ -58,6 +58,11 @@
         --text-muted: #8b949e;
       }
 
+      /* Habilita a rolagem suave nativa no navegador */
+      html {
+        scroll-behavior: smooth;
+      }
+
       body {
         font-family:
           "Muli",
@@ -94,6 +99,18 @@
         color: #f0f6fc;
       }
 
+      /* Adicionado offset para compensar o header fixo no desktop se necessário */
+      .tab-content-item {
+        scroll-margin-top: 100px;
+        margin-bottom: 50px; /* Espaçamento estético entre seções */
+      }
+
+      @media (max-width: 767.98px) {
+        .tab-content-item {
+          scroll-margin-top: 20px;
+        }
+      }
+
       /* Navbar Global Escura (Desktop) */
       .gh-header {
         background-color: #161b22;
@@ -105,11 +122,15 @@
         font-weight: 700;
       }
 
-      /* Menu de Abas (Desktop) */
+      /* Menu de Abas Fixo/Sticky (Desktop) */
       .gh-tabs-container {
         border-bottom: 1px solid var(--github-border);
         margin-bottom: 24px;
         background: var(--github-dark-bg);
+        position: sticky;
+        top: 0;
+        z-index: 1020;
+        padding-top: 10px;
       }
       .gh-nav-link {
         display: flex;
@@ -141,7 +162,7 @@
         margin-left: 6px;
       }
 
-      /* NOVO: Menu Fixo no Footer (Estilo App Mobile) */
+      /* Menu Fixo no Footer (Estilo App Mobile) */
       .mobile-nav-footer {
         position: fixed;
         bottom: 0;
@@ -430,7 +451,7 @@
           </div>
 
           <div class="vcard-bio text-muted mt-2 text-center text-md-left">
-            Engenheiro da Computação & Desenvolvedor Fullstack. Rio das Ostras ·
+            Engineering de Computação & Desenvolvedor Fullstack. Rio das Ostras ·
             RJ
           </div>
 
@@ -474,16 +495,14 @@
               <a
                 class="gh-nav-link active"
                 id="tab-overview"
-                href="javascript:void(0)"
-                onclick="switchTab('overview')"
+                href="#content-overview"
               >
                 <i class="fas fa-book-open"></i> Sobre
               </a>
               <a
                 class="gh-nav-link"
                 id="tab-experience"
-                href="javascript:void(0)"
-                onclick="switchTab('experience')"
+                href="#content-experience"
               >
                 <i class="fas fa-history"></i> Experiências
                 <span class="gh-counter">5</span>
@@ -491,8 +510,7 @@
               <a
                 class="gh-nav-link"
                 id="tab-skills"
-                href="javascript:void(0)"
-                onclick="switchTab('skills')"
+                href="#content-skills"
               >
                 <i class="fas fa-graduation-cap"></i> Formação & Skills
               </a>
@@ -651,7 +669,7 @@
             </div>
           </div>
 
-          <div id="content-experience" class="tab-content-item d-none">
+          <div id="content-experience" class="tab-content-item">
             <h3 class="mb-4 text-secondary">Experiências</h3>
             <div class="gh-timeline">
               <div class="gh-timeline-item">
@@ -777,7 +795,7 @@
             </div>
           </div>
 
-          <div id="content-skills" class="tab-content-item d-none">
+          <div id="content-skills" class="tab-content-item">
             <div class="skills-row">
               <div class="col-12 mb-4">
                 <h3 class="mb-3 text-secondary">Formação</h3>
@@ -915,28 +933,25 @@
 
     <div class="mobile-nav-footer d-flex d-md-none">
       <a
-        href="javascript:void(0)"
+        href="#content-overview"
         class="mobile-nav-item active"
         id="m-tab-overview"
-        onclick="switchTab('overview')"
       >
         <i class="fas fa-book-open"></i>
         <span>Sobre</span>
       </a>
       <a
-        href="javascript:void(0)"
+        href="#content-experience"
         class="mobile-nav-item"
         id="m-tab-experience"
-        onclick="switchTab('experience')"
       >
         <i class="fas fa-history"></i>
         <span>Experiências</span>
       </a>
       <a
-        href="javascript:void(0)"
+        href="#content-skills"
         class="mobile-nav-item"
         id="m-tab-skills"
-        onclick="switchTab('skills')"
       >
         <i class="fas fa-graduation-cap"></i>
         <span>Skills</span>
@@ -950,46 +965,42 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <!-- <script type="module" defer src="./chatboxsdk/index.js"></script> -->
-
     <script>
-      // Gerenciador de Abas unificado (Desktop e Mobile App Footer) com comportamento de Scroll
-      function switchTab(tabName) {
-        // Reseta classes do Desktop
-        $(".gh-nav-link").removeClass("active");
-        // Reseta classes do Mobile Footer Menu
-        $(".mobile-nav-item").removeClass("active");
-
-        // Oculta todos os blocos de conteúdo
-        $(".tab-content-item").addClass("d-none");
-
-        // Ativa a aba clicada (tanto faz se clicou no topo ou no footer)
-        $("#tab-" + tabName).addClass("active"); // UI Desktop
-        $("#m-tab-" + tabName).addClass("active"); // UI Mobile
-        $("#content-" + tabName).removeClass("d-none"); // Conteúdo
-
-        // Executa a rolagem para o início do bloco de conteúdo principal
-        const contentTarget = document.getElementById("portfolio-content");
-        if (contentTarget) {
-          contentTarget.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-      }
-
+      // Novo gerenciador usando IntersectionObserver para mudar a aba ativa ao rolar a página
       document.addEventListener("DOMContentLoaded", function () {
-        const fullText =
-          "Graduado em Engenharia da Computação pela Universidade Estadual de Feira de Santana (UEFS), com forte conhecimento em desenvolvimento de sistemas. Atuei como Desenvolvedor Full Stack na Vollare, participando da implementação de novas funcionalidades e da manutenção de sistemas existentes do 1º Registro de Imóveis de Feira de Santana. Possuo experiência tanto em front-end quanto em back-end, com foco na entrega de soluções eficientes e escaláveis. Também tenho vivência no desenvolvimento de sistemas clínicos e sistemas de gestão tradicionais. ";
-        const textElement = document.getElementById("typewriter-text");
-        let i = 0;
-        // function typeWriter() {
-        //   if (i < fullText.length) {
-        //     textElement.innerHTML += fullText.charAt(i);
-        //     i++;
-        //     setTimeout(typeWriter, 25);
-        //   } else {
-        //   }
-        // }
-        textElement.innerHTML += fullText;
-        typeWriter();
+        const sections = document.querySelectorAll(".tab-content-item");
+        
+        // Mapeamento de IDs de Seção para IDs de Links do Menu
+        const navMap = {
+          "content-overview": { desktop: "#tab-overview", mobile: "#m-tab-overview" },
+          "content-experience": { desktop: "#tab-experience", mobile: "#m-tab-experience" },
+          "content-skills": { desktop: "#tab-skills", mobile: "#m-tab-skills" }
+        };
+
+        const observerOptions = {
+          root: null,
+          rootMargin: "-20% 0px -60% 0px", // Detecta o item predominante no centro/topo do viewport
+          threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const id = entry.target.getAttribute("id");
+              
+              // Remove active de tudo
+              $(".gh-nav-link, .mobile-nav-item").removeClass("active");
+              
+              // Adiciona active no par correspondente
+              if (navMap[id]) {
+                $(navMap[id].desktop).addClass("active");
+                $(navMap[id].mobile).addClass("active");
+              }
+            }
+          });
+        }, observerOptions);
+
+        sections.forEach((section) => observer.observe(section));
       });
     </script>
   </body>
