@@ -966,6 +966,22 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const fullText =
+          "Graduado em Engenharia da Computação pela Universidade Estadual de Feira de Santana (UEFS), com forte conhecimento em desenvolvimento de sistemas. Atuei como Desenvolvedor Full Stack na Vollare, participando da implementação de novas funcionalidades e da manutenção de sistemas existentes do 1º Registro de Imóveis de Feira de Santana. Possuo experiência tanto em front-end quanto em back-end, com foco na entrega de soluções eficientes e escaláveis. Também tenho vivência no desenvolvimento de sistemas clínicos e sistemas de gestão tradicionais. ";
+        const textElement = document.getElementById("typewriter-text");
+        let i = 0;
+        // function typeWriter() {
+        //   if (i < fullText.length) {
+        //     textElement.innerHTML += fullText.charAt(i);
+        //     i++;
+        //     setTimeout(typeWriter, 25);
+        //   } else {
+        //   }
+        // }
+        textElement.innerHTML += fullText;
+        typeWriter();
+      });
       // Novo gerenciador usando IntersectionObserver para mudar a aba ativa ao rolar a página
       document.addEventListener("DOMContentLoaded", function () {
         const sections = document.querySelectorAll(".tab-content-item");
