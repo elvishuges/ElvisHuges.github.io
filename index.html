@@ -450,8 +450,8 @@
           </div>
 
           <div class="vcard-bio text-muted mt-2 text-center text-md-left">
-            Engenheiro de Computação pleno & Desenvolvedor Fullstack. Rio das Ostras ·
-            RJ
+            Engenheiro de Computação pleno & Desenvolvedor Fullstack. Rio das
+            Ostras · RJ
           </div>
 
           <div class="social-icons my-3 text-center text-md-left">
@@ -506,11 +506,7 @@
                 <i class="fas fa-history"></i> Experiências
                 <span class="gh-counter">5</span>
               </a>
-              <a
-                class="gh-nav-link"
-                id="tab-skills"
-                href="#content-skills"
-              >
+              <a class="gh-nav-link" id="tab-skills" href="#content-skills">
                 <i class="fas fa-graduation-cap"></i> Formação & Skills
               </a>
             </nav>
@@ -947,11 +943,7 @@
         <i class="fas fa-history"></i>
         <span>Experiências</span>
       </a>
-      <a
-        href="#content-skills"
-        class="mobile-nav-item"
-        id="m-tab-skills"
-      >
+      <a href="#content-skills" class="mobile-nav-item" id="m-tab-skills">
         <i class="fas fa-graduation-cap"></i>
         <span>Skills</span>
       </a>
@@ -967,7 +959,7 @@
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const fullText =
-          "Graduado em Engenharia da Computação pela Universidade Estadual de Feira de Santana (UEFS), com forte conhecimento em desenvolvimento de sistemas. Atuei como Desenvolvedor Full Stack na Vollare, participando da implementação de novas funcionalidades e da manutenção de sistemas existentes do 1º Registro de Imóveis de Feira de Santana. Possuo experiência tanto em front-end quanto em back-end, com foco na entrega de soluções eficientes e escaláveis. Também tenho vivência no desenvolvimento de sistemas clínicos e sistemas de gestão tradicionais. ";
+          "Graduado em Engenharia da Computação pela Universidade Estadual de Feira de Santana (UEFS), com forte conhecimento em desenvolvimento de sistemas. Atualmente, sou trabalho para a Qintess, alocado como desenvolvedor pleno na BASA (Banco da Amazonia), atuei como desenvolvedor na Secretaria de Segurança Pública do estado da Bahia onde desenvolvi o front-end de um sistema de reconhecimento facial. Em trabalhos anteriores, atuei como desenvolvedor na Vollare, participando da manutenção do sistema do 1º Registro de Imóveis de Feira de Santana. Possuo experiência tanto em front-end quanto em back-end. Também tenho vivência no desenvolvimento de sistemas clínicos e sistemas de gestão tradicionais. ";
         const textElement = document.getElementById("typewriter-text");
         let i = 0;
         // function typeWriter() {
@@ -984,28 +976,34 @@
       // Novo gerenciador usando IntersectionObserver para mudar a aba ativa ao rolar a página
       document.addEventListener("DOMContentLoaded", function () {
         const sections = document.querySelectorAll(".tab-content-item");
-        
+
         // Mapeamento de IDs de Seção para IDs de Links do Menu
         const navMap = {
-          "content-overview": { desktop: "#tab-overview", mobile: "#m-tab-overview" },
-          "content-experience": { desktop: "#tab-experience", mobile: "#m-tab-experience" },
-          "content-skills": { desktop: "#tab-skills", mobile: "#m-tab-skills" }
+          "content-overview": {
+            desktop: "#tab-overview",
+            mobile: "#m-tab-overview",
+          },
+          "content-experience": {
+            desktop: "#tab-experience",
+            mobile: "#m-tab-experience",
+          },
+          "content-skills": { desktop: "#tab-skills", mobile: "#m-tab-skills" },
         };
 
         const observerOptions = {
           root: null,
           rootMargin: "-20% 0px -60% 0px", // Detecta o item predominante no centro/topo do viewport
-          threshold: 0
+          threshold: 0,
         };
 
         const observer = new IntersectionObserver((entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               const id = entry.target.getAttribute("id");
-              
+
               // Remove active de tudo
               $(".gh-nav-link, .mobile-nav-item").removeClass("active");
-              
+
               // Adiciona active no par correspondente
               if (navMap[id]) {
                 $(navMap[id].desktop).addClass("active");
