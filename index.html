@@ -397,6 +397,34 @@
       .social-icons a:hover {
         background-color: var(--primary-color);
       }
+      /* CSS para o Efeito Glassmorphism */
+      .glass-panel {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+      }
+
+      .glass-link {
+        transition: all 0.3s ease-in-out;
+      }
+
+      .glass-link:hover {
+        background-color: rgba(255, 255, 255, 0.08);
+        transform: scale(1.05);
+      }
+
+      .glass-btn {
+        background: linear-gradient(135deg, #007bff 0%, #00d4ff 100%);
+        border: none;
+        box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
+        transition: all 0.3s ease;
+      }
+
+      .glass-btn:hover {
+        box-shadow: 0 6px 20px rgba(0, 123, 255, 0.6);
+        transform: translateY(-2px);
+      }
     </style>
   </head>
 
@@ -409,18 +437,27 @@
           <span>Elvis Huges</span>
         </a>
 
-        <div class="d-flex align-items-center">
+        <div class="d-flex align-items-center p-2 gap-2">
+          <!-- Link do Blog -->
           <a
             href="./blogs.html"
-            class="d-flex align-items-center mr-3 text-decoration-none text-light"
+            class="d-flex align-items-center text-decoration-none px-4 py-2 text-light glass-link rounded-pill"
           >
-            <span>MEU BLOG</span>
+            <i class="bi bi-book mr-2 text-primary"></i>
+            <!-- Ícone Opcional -->
+            <span class="font-weight-bold text-uppercase small tracking-normal"
+              >Blog</span
+            >
           </a>
 
+          <!-- Link das Startups -->
           <a
-            class="btn btn-sm btn-outline-primary text-light font-weight-bold px-3"
+            target="_blank"
+            href="./startups/index.html"
+            class="d-flex align-items-center text-decoration-none px-4 py-2 text-light glass-link rounded-pill"
           >
-            BY HUGESOFT
+            <i class="bi bi-lightbulb-fill me-2 text-primary"></i>
+            <span class="font-weight-bold text-uppercase small tracking-normal">Startups</span>
           </a>
         </div>
       </div>
@@ -675,12 +712,51 @@
                   <h4 class="mb-0">Analista Desenvolvedor 2</h4>
                   <span class="text-muted small">📅 Fev 2026 → Atualmente</span>
                 </div>
-                <div class="mb-2 text-muted small">Qintess · SP</div>
-                <p class="mb-2">
-                  Desenvolvimento de sistemas com Vuejs3, Typescript e Vuetify.
-                  Integração com APIs em SpringBoot.
-                </p>
-                <div>
+                <div class="mb-2 text-muted small">Qintess · SP 📍</div>
+                <div class="d-flex flex-column ga-3">
+                  <v-card
+                    variant="outlined"
+                    class="border-opacity-25 rounded-lg pa-4"
+                  >
+                    <div class="d-flex justify-space-between align-center mb-1">
+                      <span
+                        class="text-subtitle-1 font-weight-bold text-primary"
+                        >Banco da Amazônia</span
+                      >
+                      <v-chip size="x-small" color="primary" variant="tonal"
+                        >Jun/2026 - Presente</v-chip
+                      >
+                    </div>
+                    <div class="text-body-2 text-medium-emphasis">
+                      Sustentação do sistema
+                      <strong>ACW (Amazon Cobrança WEB)</strong> em Java com
+                      análise de banco de dados Oracle.
+                    </div>
+                  </v-card>
+
+                  <v-card
+                    variant="outlined"
+                    class="border-opacity-25 rounded-lg pa-4"
+                  >
+                    <div class="d-flex justify-space-between align-center mb-1">
+                      <span
+                        class="text-subtitle-1 font-weight-bold text-primary"
+                        >Secretaria de Segurança Pública</span
+                      >
+                      <v-chip size="x-small" color="default" variant="tonal"
+                        >Jan/2026 - Jun/2026</v-chip
+                      >
+                    </div>
+                    <div class="text-body-2 text-medium-emphasis">
+                      Desenvolvimento frontend para sistema de reconhecimento
+                      facial utilizando <strong>Vue.js</strong>,
+                      <strong>Vuetify</strong> e
+                      <strong>Arquitetura Hexagonal</strong>, integrado a API
+                      Spring Boot.
+                    </div>
+                  </v-card>
+                </div>
+                <div class="mt-2">
                   <span class="tag">javascript</span
                   ><span class="tag">Vuejs3</span
                   ><span class="tag">Vuetify</span
@@ -697,7 +773,7 @@
                   <span class="text-muted small">📅 Mar 2023 → Jan 2026</span>
                 </div>
                 <div class="mb-2 text-muted small">
-                  Vollare - IT Services · BA
+                  Vollare - IT Services · BA 📍
                 </div>
                 <p class="mb-2">
                   Manutenção das funcionalidades do sistema do 1º Registro de
@@ -950,6 +1026,10 @@
       <a href="./blogs.html" class="mobile-nav-item" id="m-tab-blog">
         <i class="fas fa-blog"></i>
         <span>BLOG</span>
+      </a>
+      <a href="./startups/index.html" class="mobile-nav-item" id="m-tab-startups">
+        <i class="fas fa-rocket mr-2 mt-1"></i>
+        <span>Startups</span>
       </a>
     </div>
 
