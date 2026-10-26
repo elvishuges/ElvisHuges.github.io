@@ -1,0 +1,574 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Lavagem automotiva em domicílio. Economize tempo e cuide do seu carro sem sair de casa.">
+
+  <title>Lavagem Automotiva Delivery | HUGESOFT</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Space Grotesk', 'sans-serif'],
+            mono: ['Fira Code', 'monospace']
+          },
+          colors: {
+            brand: {
+              dark: '#07090e',
+              card: '#0e131f',
+              cyan: '#00f0ff',
+              purple: '#7000ff',
+              emerald: '#00ffaa'
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #07090e;
+      background-image:
+        radial-gradient(circle at 15% 15%, rgba(112, 0, 255, 0.12), transparent 40%),
+        radial-gradient(circle at 85% 65%, rgba(0, 240, 255, 0.08), transparent 40%),
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+      color: #e2e8f0;
+      overflow-x: hidden;
+    }
+
+    .glass-panel {
+      background: rgba(14, 19, 31, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .tech-card {
+      transition: all 0.3s ease;
+    }
+
+    .tech-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(0, 240, 255, 0.4);
+      box-shadow: 0 12px 35px rgba(0, 240, 255, 0.08);
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #00f0ff, #ffffff, #7000ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* Menu mobile fixo */
+    .mobile-nav-footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 65px;
+      background: #161b22;
+      border-top: 1px solid #30363d;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      z-index: 1030;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .mobile-nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #8b949e;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      text-decoration: none;
+      flex: 1;
+      height: 100%;
+      gap: 3px;
+    }
+
+    .mobile-nav-item i {
+      font-size: 20px;
+    }
+
+    .mobile-nav-item.active,
+    .mobile-nav-item:hover {
+      color: #00f0ff;
+    }
+
+    @media (max-width: 767px) {
+      body {
+        padding-bottom: 65px;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .mobile-nav-footer {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body class="font-sans antialiased min-h-screen">
+
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-50 px-4 py-4 sm:px-8">
+    <div class="max-w-7xl mx-auto glass-panel rounded-full px-6 py-3 flex items-center justify-between gap-4">
+
+      <a href="../index.html" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-purple to-brand-cyan flex items-center justify-center font-mono font-bold text-black text-xl">
+          H
+        </div>
+
+        <div class="flex flex-col">
+          <span class="font-bold text-white font-mono tracking-wider">
+            HUGESOFT
+          </span>
+          <span class="text-[10px] text-gray-400 uppercase tracking-widest">
+            Auto Care Delivery
+          </span>
+        </div>
+      </a>
+
+      <a href="../index.html"
+         class="hidden md:flex items-center gap-2 text-sm text-gray-300 hover:text-brand-cyan transition">
+        <i class="fa-solid fa-arrow-left"></i>
+        Voltar às iniciativas
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 py-20 text-center">
+
+    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-brand-cyan mb-8">
+      <i class="fa-solid fa-car"></i>
+      LAVAGEM AUTOMOTIVA EM DOMICÍLIO
+    </div>
+
+    <h1 class="text-4xl sm:text-6xl font-bold text-white leading-tight mb-6">
+      Seu tempo vale mais.
+      <br>
+      <span class="gradient-text">
+        A limpeza do seu carro fica por nossa conta.
+      </span>
+    </h1>
+
+    <p class="max-w-2xl mx-auto text-gray-400 text-lg leading-relaxed mb-10">
+      Sua rotina é corrida e não sobra tempo para lavar o carro?
+      Nós vamos até você! Tenha seu veículo limpo sem precisar
+      enfrentar filas ou sair de casa.
+    </p>
+
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+
+      <a href="#servicos"
+         class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-brand-cyan to-blue-600 text-black font-bold hover:opacity-90 transition">
+        <i class="fa-solid fa-soap mr-2"></i>
+        CONHECER SERVIÇOS
+      </a>
+
+      <a href="#"
+         data-whatsapp="geral"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="w-full sm:w-auto px-8 py-4 rounded-xl border border-green-500/40 text-green-400 hover:bg-green-500/10 transition font-bold">
+        <i class="fa-brands fa-whatsapp mr-2"></i>
+        FALAR NO WHATSAPP
+      </a>
+
+    </div>
+  </section>
+
+  <!-- BENEFÍCIOS -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 py-12">
+
+    <div class="text-center mb-12">
+      <span class="text-brand-cyan font-mono text-xs tracking-widest uppercase">
+        PRATICIDADE PARA SUA ROTINA
+      </span>
+
+      <h2 class="text-3xl sm:text-4xl font-bold text-white mt-3">
+        Mais tempo para o que importa
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      <div class="glass-panel tech-card rounded-2xl p-7">
+        <div class="text-brand-cyan text-3xl mb-5">
+          <i class="fa-regular fa-clock"></i>
+        </div>
+
+        <h3 class="text-xl font-bold text-white mb-3">
+          Economize seu tempo
+        </h3>
+
+        <p class="text-gray-400 text-sm leading-relaxed">
+          Não perca horas se deslocando até um lava-rápido.
+          Continue com suas atividades enquanto cuidamos do seu carro.
+        </p>
+      </div>
+
+      <div class="glass-panel tech-card rounded-2xl p-7">
+        <div class="text-brand-cyan text-3xl mb-5">
+          <i class="fa-solid fa-house"></i>
+        </div>
+
+        <h3 class="text-xl font-bold text-white mb-3">
+          Atendimento em domicílio
+        </h3>
+
+        <p class="text-gray-400 text-sm leading-relaxed">
+          Levamos o serviço até o local combinado,
+          proporcionando mais comodidade para sua rotina.
+        </p>
+      </div>
+
+      <div class="glass-panel tech-card rounded-2xl p-7">
+        <div class="text-brand-cyan text-3xl mb-5">
+          <i class="fa-solid fa-sparkles"></i>
+        </div>
+
+        <h3 class="text-xl font-bold text-white mb-3">
+          Seu carro bem cuidado
+        </h3>
+
+        <p class="text-gray-400 text-sm leading-relaxed">
+          Um serviço dedicado à limpeza do seu veículo,
+          com atenção aos detalhes e praticidade.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TIPOS DE LAVAGEM -->
+  <section id="servicos" class="max-w-7xl mx-auto px-4 sm:px-6 py-20">
+
+    <div class="text-center mb-12">
+      <span class="text-brand-cyan font-mono text-xs tracking-widest uppercase">
+        NOSSOS SERVIÇOS
+      </span>
+
+      <h2 class="text-3xl sm:text-4xl font-bold text-white mt-3">
+        Escolha a lavagem ideal
+      </h2>
+
+      <p class="text-gray-400 mt-4">
+        Escolha o serviço que melhor atende às necessidades do seu carro.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+
+      <!-- LAVAGEM SIMPLES -->
+      <div class="glass-panel tech-card rounded-2xl p-8 flex flex-col">
+
+        <div class="flex items-center justify-between mb-6">
+          <div class="w-14 h-14 rounded-xl bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan text-2xl">
+            <i class="fa-solid fa-car-side"></i>
+          </div>
+
+          <span class="text-xs font-mono text-brand-cyan bg-brand-cyan/10 px-3 py-1 rounded-full">
+            ESSENCIAL
+          </span>
+        </div>
+
+        <h3 class="text-2xl font-bold text-white mb-2">
+          Lavagem Simples
+        </h3>
+
+        <p class="text-gray-400 text-sm mb-6">
+          Ideal para manter seu veículo limpo por fora.
+        </p>
+
+        <div class="mb-8">
+          <span class="text-4xl font-bold text-white">
+            R$ 60,00
+          </span>
+        </div>
+
+        <div class="border-t border-white/10 pt-6 mb-8 flex-grow">
+
+          <p class="text-sm font-bold text-gray-300 mb-4">
+            O que está incluso:
+          </p>
+
+          <ul class="space-y-4 text-sm text-gray-300">
+            <li class="flex items-center gap-3">
+              <i class="fa-solid fa-check text-brand-emerald"></i>
+              Lavagem exterior do veículo
+            </li>
+          </ul>
+
+        </div>
+
+        <a href="#"
+           data-whatsapp="simples"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="w-full text-center px-6 py-4 rounded-xl bg-brand-cyan text-black font-bold hover:opacity-90 transition">
+          <i class="fa-brands fa-whatsapp mr-2"></i>
+          AGENDAR LAVAGEM SIMPLES
+        </a>
+      </div>
+
+      <!-- LAVAGEM COMPLETA -->
+      <div class="glass-panel tech-card rounded-2xl p-8 flex flex-col border border-brand-purple/40 relative">
+
+        <span class="absolute -top-3 right-6 bg-brand-purple text-white px-4 py-1 rounded-full text-xs font-bold">
+          MAIS COMPLETA
+        </span>
+
+        <div class="flex items-center justify-between mb-6">
+          <div class="w-14 h-14 rounded-xl bg-brand-purple/10 border border-brand-purple/40 flex items-center justify-center text-purple-400 text-2xl">
+            <i class="fa-solid fa-sparkles"></i>
+          </div>
+
+          <span class="text-xs font-mono text-purple-400 bg-brand-purple/10 px-3 py-1 rounded-full">
+            PREMIUM
+          </span>
+        </div>
+
+        <h3 class="text-2xl font-bold text-white mb-2">
+          Lavagem Completa
+        </h3>
+
+        <p class="text-gray-400 text-sm mb-6">
+          Uma limpeza mais abrangente para seu veículo.
+        </p>
+
+        <div class="mb-8">
+          <span class="text-2xl font-bold text-white">
+            Sob consulta
+          </span>
+        </div>
+
+        <div class="border-t border-white/10 pt-6 mb-8 flex-grow">
+
+          <p class="text-sm font-bold text-gray-300 mb-4">
+            O que está incluso:
+          </p>
+
+          <ul class="space-y-4 text-sm text-gray-300">
+
+            <li class="flex items-center gap-3">
+              <i class="fa-solid fa-check text-brand-emerald"></i>
+              Lavagem exterior
+            </li>
+
+            <li class="flex items-center gap-3">
+              <i class="fa-solid fa-check text-brand-emerald"></i>
+              Limpeza interior
+            </li>
+
+            <li class="flex items-center gap-3">
+              <i class="fa-solid fa-check text-brand-emerald"></i>
+              Limpeza dos pneus
+            </li>
+
+          </ul>
+
+        </div>
+
+        <a href="#"
+           data-whatsapp="completa"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="w-full text-center px-6 py-4 rounded-xl bg-gradient-to-r from-brand-purple to-purple-600 text-white font-bold hover:opacity-90 transition">
+          <i class="fa-brands fa-whatsapp mr-2"></i>
+          AGENDAR LAVAGEM COMPLETA
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 py-16">
+
+    <div class="text-center mb-12">
+      <h2 class="text-3xl sm:text-4xl font-bold text-white">
+        Como funciona?
+      </h2>
+
+      <p class="text-gray-400 mt-3">
+        Simples, rápido e sem complicação.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+
+      <div>
+        <div class="w-14 h-14 mx-auto mb-5 rounded-full bg-brand-cyan/10 text-brand-cyan flex items-center justify-center text-xl font-bold">
+          01
+        </div>
+        <h3 class="text-lg font-bold text-white mb-2">
+          Escolha o serviço
+        </h3>
+        <p class="text-gray-400 text-sm">
+          Selecione a lavagem simples ou completa.
+        </p>
+      </div>
+
+      <div>
+        <div class="w-14 h-14 mx-auto mb-5 rounded-full bg-brand-cyan/10 text-brand-cyan flex items-center justify-center text-xl font-bold">
+          02
+        </div>
+        <h3 class="text-lg font-bold text-white mb-2">
+          Agende pelo WhatsApp
+        </h3>
+        <p class="text-gray-400 text-sm">
+          Combine o melhor dia, horário e local.
+        </p>
+      </div>
+
+      <div>
+        <div class="w-14 h-14 mx-auto mb-5 rounded-full bg-brand-cyan/10 text-brand-cyan flex items-center justify-center text-xl font-bold">
+          03
+        </div>
+        <h3 class="text-lg font-bold text-white mb-2">
+          Nós vamos até você
+        </h3>
+        <p class="text-gray-400 text-sm">
+          Realizamos o serviço no local combinado.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="max-w-5xl mx-auto px-4 sm:px-6 py-20">
+
+    <div class="glass-panel rounded-3xl p-8 sm:p-14 text-center border border-brand-cyan/20">
+
+      <div class="text-brand-cyan text-4xl mb-6">
+        <i class="fa-solid fa-car"></i>
+      </div>
+
+      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-5">
+        Sem tempo para lavar seu carro?
+      </h2>
+
+      <p class="text-gray-400 max-w-xl mx-auto mb-8">
+        Deixe essa tarefa com a gente.
+        Entre em contato e consulte nossa disponibilidade.
+      </p>
+
+      <a href="#"
+         data-whatsapp="geral"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-green-500 text-white font-bold hover:bg-green-600 transition">
+        <i class="fa-brands fa-whatsapp text-xl"></i>
+        AGENDAR PELO WHATSAPP
+      </a>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/10 glass-panel py-8 px-4">
+
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs text-gray-500">
+
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-brand-emerald"></span>
+        <span>HUGESOFT ECOSYSTEM &copy; 2026</span>
+      </div>
+
+      <div>
+        <span class="text-brand-cyan font-bold">
+          BY HUGESOFT
+        </span>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- MENU MOBILE FIXO -->
+  <nav class="mobile-nav-footer" aria-label="Navegação mobile">
+
+    <a href="../../index.html" class="mobile-nav-item">
+      <i class="fa-solid fa-user"></i>
+      <span>Portfólio</span>
+    </a>
+
+    <a href="../index.html" class="mobile-nav-item">
+      <i class="fa-solid fa-rocket"></i>
+      <span>Iniciativas</span>
+    </a>
+
+    <a href="#servicos" class="mobile-nav-item active">
+      <i class="fa-solid fa-car"></i>
+      <span>Serviços</span>
+    </a>
+
+    <a href="#"
+       data-whatsapp="geral"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="mobile-nav-item">
+      <i class="fa-brands fa-whatsapp"></i>
+      <span>WhatsApp</span>
+    </a>
+
+  </nav>
+
+  <!-- CONFIGURAÇÃO DO WHATSAPP -->
+  <script>
+    const WHATSAPP_NUMBER = '5575981642037';
+
+    const whatsappMessages = {
+      geral:
+        'Olá! Vi a página de lavagem automotiva e gostaria de consultar valores e disponibilidade para um atendimento.',
+
+      simples:
+        'Olá! Gostaria de agendar uma Lavagem Simples (exterior) no valor de R$ 60,00. Qual a disponibilidade?',
+
+      completa:
+        'Olá! Gostaria de agendar uma Lavagem Completa (exterior, interior e pneus). Poderia informar o valor e a disponibilidade?'
+    };
+
+    document.querySelectorAll('[data-whatsapp]').forEach(link => {
+      const tipo = link.dataset.whatsapp;
+      const mensagem = whatsappMessages[tipo] || whatsappMessages.geral;
+
+      link.href =
+        `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensagem)}`;
+    });
+  </script>
+
+</body>
+</html>
